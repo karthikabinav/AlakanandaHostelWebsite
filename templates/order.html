@@ -1,0 +1,44 @@
+{%extends "index.html" %}
+
+{%block content%}
+
+<ul>
+
+<li>
+{{meet_object.CouponType}}
+</li>
+
+<li>
+{{meet_object.Initiater.user.user.username}}
+
+</li>
+
+<li>
+{%for junta in meet_object.CouponUsers.all%} 
+    {{junta.user.username}}
+{%endfor%}
+</li>
+
+<li>
+{{meet_object.Start_Time}}
+</li>
+<li>
+{{meet_object.End_Time}}
+</li>
+
+
+</ul>
+
+Team Members are
+<br>
+{% for junta in meet_object.CouponUsers.all %}
+    {{forloop.counter}}
+    {{junta.user}}
+<br>
+{%endfor%}    
+
+{%if edit%}
+<a href="{{SITE_URL}}/autometer/end_meet/">End Meet</a>
+{%endif%}
+
+{%endblock%}

@@ -1,0 +1,23 @@
+{% extends "index.html" %}
+
+{% block head %}
+
+
+{%endblock%}
+
+
+{%block content %}
+
+<form action="/autometer/startmeetSubmit/" method="POST">
+
+{{coupon_form.as_table}}
+<tr>
+<td>
+<input type="submit" value="Initiate a Meet"/>
+
+
+</td></tr>
+
+</form>
+
+{%endblock%}

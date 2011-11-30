@@ -1,0 +1,46 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>Alakananda Hostel</title>
+    <link rel="shortcut icon" href="images/favicon.ico" >
+    <meta name="keywords" content="Alakananda , Alak , IIT madras" />
+    <meta name="description" content="Best hostel, Alakananda , Alak" />
+    <script src="/jquery.js"></script>
+
+    <link href="style1.css" rel="stylesheet" type="text/css" media="screen" />
+
+
+</head>
+<body>
+    <div id="wrapper">
+        <div id="page" style="height:900px;width:1200px;overflow:auto;"><div class="inner_copy"><div class="inner_copy"></div></div>
+		
+		<div id="content">
+		<div id="banner">
+		<img src="images/alakCentralImage.png" style="position:absolute;left:180px;height:512px;width:1024px;" alt="" />
+		
+		</div>
+        
+        <div id="Tabs"> 
+            <a href="#"><div class = "tabImage" id ="home"></a></div>
+            <div class=" tabImage" id="activities"></div>
+            <div class=" tabImage" id="alumni"></div>
+            <div class=" tabImage" id="gallery"></div>
+            <div class=" tabImage" id="residents"></div>
+            <div class=" tabImage" id="contact"></div>
+        
+            </div>
+            
+            <div id="footer"style="font-weight:bold;color:black">
+        	
+                    <img src="images/credits/credits1.png"> <a href="http://www.facebook.com"><img src="images/credits/abhiram.png"></a> &nbsp<img src="images/credits/and.png">&nbsp<a href="http://www.facebook.com/karthikabinavs"> <img src="images/credits/kabinav.png"></a>  
+        
+            </div>
+    
+        
+
+            </div><!-- end of content -->
+        </div><!-- end of page -->
+    </div><!-- end of wrapper -->
+</body>

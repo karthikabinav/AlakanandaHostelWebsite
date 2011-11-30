@@ -1,0 +1,42 @@
+{%extends "index.html"%}
+
+{% block head %}
+
+{%endblock%}
+
+
+{%block content %}
+
+<table>
+{%for curmeet in cur_meets%}
+<tr><td>
+{{curmeet.coupon_type}}
+</td>
+<td>
+{{curmeet.initiater}}
+</td>
+<td>
+{{curmeet.CouponUsers}}
+
+</td>
+<td>
+{{curmeet.start_time}}
+
+</td>
+
+<td>
+{{curmeet.end_time}}
+
+</td>
+<td>
+<form action="/autometer/JoinMeet" method="POST">
+<input type="submit" value="Join this meet "/	>
+
+</form>
+</td>
+</tr>
+{%endfor%}
+</table>
+
+
+{%endblock%}

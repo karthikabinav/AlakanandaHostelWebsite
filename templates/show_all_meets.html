@@ -1,0 +1,25 @@
+{%extends "index.html"%}
+
+
+{%block content %}
+<center>
+<h2> ALL MEETS SO FAR </h2> 
+
+
+<table class="sortable">
+<th width="100px">Initiator</th>
+<th></th>
+<th width="150px"> Start Time </th>
+<th></th>
+<th> End Time </th>
+
+{%for meets in all_meets%}
+  <tr> 
+  <td>{{meets.initiater.user.user.username}}</td><td></td>  <td>{{meets.start_time}}</td> <td></td> <td>{{meets.end_time}}</td>
+  </tr> 
+{%endfor%}
+
+
+</table>
+</center>
+{%endblock%}

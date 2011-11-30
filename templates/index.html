@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<title>Pizza Mania</title>
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<script src="{{MEDIA_URL}}jquery.js"></script>
+<script src="{{MEDIA_URL}}sorttable.js"></script>
+<link href="{{MEDIA_URL}}style.css" rel="stylesheet" type="text/css" media="screen" />
+
+{%block head%}{%endblock%}
+</head>
+
+<body>
+<div id="wrapper">
+	<div id="logo">
+		<h1>Pizza Mania</h1>
+		</div><hr />
+	<div id="header">
+		<div id="menu">
+			<ul>
+				<li><a href="/autometer/pizza/menu/" class="first">Pizzas</a></li>
+				<li class="current_page_item"><a href="/autometer/TypesOfCoupons/">Types of Coupon</a></li>
+				
+				<li> <a href ="/autometer/PreviousOrders/"> All previous orders </a> </li>
+				{% if user.is_authenticated%}
+				<li><a href="/autometer/myPreviousOrders/">My Previous Orders</a></li>
+				{%else%}
+				<li><a href="/autometer/login/">Login</a></li>
+				
+				
+				{%endif%}				
+			</ul>
+		</div>
+		
+	</div>
+	<div id="page"><div class="inner_copy"><div class="inner_copy"></div></div>
+		
+		<div id="content">
+		<div id="banner">
+		<img src="{{MEDIA_URL}}images/pizza.jpg" style="height:199px;width:580px;" alt="" />
+		
+		</div>
+		{%block content%}
+			
+			<div class="post">
+				<h2 class="title"><a href="#">Welcome to PizzaMania</a></h2>
+				<p class="meta">    <!-- display current date and time here--></a></p>
+				<div class="entry">
+					<p>This is a online pizza sharing portal. Its intended for internal use only. The creators of this sit do not take responsibility for any misunderstandings among the users. Have a nice day!!</p>
+					
+				</div>
+			</div>
+			<div class="post">
+				<h2 class="title"><a href="#">Dominos Pizza</a></h2>
+				<p class="meta"></p>
+				<div class="entry">
+					<p>One of the most favourite preferred pizza distributors among insti junta. Located on the 100 feet raod of taramani, its a really worth for money!!</p>
+				</div>
+			</div>
+			<div class="post">
+				<h2 class="title">Pizza Hut</h2>
+				<p class="meta"></p>
+				<div class="entry">
+					<p>This is one of the lesser preferred spots. But, a real hangout place if you want to take your non - male counter parts out on a date ;) </p>
+				</div>
+			</div>
+		{%endblock%}
+		</div>
+		
+		<div id="sidebar">
+			
+			<ul>
+			{%block login%}
+        				{%if user.is_authenticated%}
+<li>
+
+    <p>WELCOME </t><strong> {{user.username}} </strong></p><br />
+    <div id="logout" style="position:relative;left:170px;top:-40px;"><form action="/autometer/logout/" method="POST"><input type="submit" value="logout"/></form></div>
+</li>
+<li>
+<form action="/autometer/startmeet/" method="POST">
+<div style="position:relative;left:30px;top:-30px;">{{coupon_form.as_table}}</div>
+<br>
+<div id="initiatemeet" style="position:relative;top:-40px;left:115px;">
+<input type="submit" value="I Have a Coupon" title="Start a pizza sharing session"/>
+</div>
+</form>
+</li>
+
+
+
+
+{%endif%}
+
+	  {%endblock%}
+	  {%block markers%}
+	  			
+				{%if user.is_authenticated%}
+				    <li>
+				    <div id="rank_pic" style="position:relative;top:100px;">
+				    <img src="{{MEDIA_URL}}stars.png">
+				    </div>
+				    <div id="rank" style="position:relative;top:30px;left:160px;font-size:40px">{{number_initiated}}</div>
+				    </li>
+				{%else%}
+				     <div id="heading_title" style="position:relative;top:100px;">   
+				     <h2> CURRENT MEETS GOING ON </h2> </div>
+				     <div id="content_meet"><table class="sortable"><th width="100px">INITIATER </th><th width="150px"> START TIME </th>  
+				        {%for meets in latest_meet%}
+				             <tr>
+				             <td>{{meets.initiater.user.user.username}}</td>      
+				             <td>{{meets.start_time|date:" P d N "}}</td>
+				             
+				        
+				        {%endfor%}
+				       </div>
+				      <script>
+    $("div#content_meet").hide()
+  $("div#heading_title").click(function () {
+    
+    $("div#content_meet").slideToggle("slow");
+    });
+  
+
+</script>
+
+				{%endif%}
+	{%endblock%}			
+			</ul>
+		</div>
+		<div style="clear:both">&nbsp;</div>
+	</div>
+	<div id="footer-bgcontent">
+		
+	</div>
+</div>
+</body>
+</html>

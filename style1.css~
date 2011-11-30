@@ -1,0 +1,26 @@
+body {margin-top:50px;padding:0;background:#161616 url(images/finalBgd.png) no-repeat left top;font-family:Arial,Helvetica,sans-serif;font-size:12px;color:#8A8A8A}
+a {color:#AAFFBB}
+a:hover {text-decoration:none}
+a img {border:none}
+.inner_copy {border:0;color:#f00;float:left;width:50% !important;margin:-100% 0 0 0;overflow:hidden;line-height:0;padding:0;font-size:11px}
+#page {width:920px;margin:0 auto;padding:40px 20px 0 20px;}
+
+#banner {padding-bottom:20px}
+/* Content */
+#content {float:left;width:580px}
+
+#footer {font-weight:bold;color:black;height:20px;margin:0 auto;padding-top:50px;position:absolute;float:center;top:970px;left:360px;}
+
+.tabImage{position:absolute;top:20px;}
+#home{left:180px;height:45px;width:160px;background:url(images/Tabs/home.png);}
+#home:hover{background:url(images/Tabs/homeRollOver.png);cursor:pointer}
+#activities{left:340px;height:45px;width:160px;background:url(images/Tabs/activities.png);}
+#activities:hover{background:url(images/Tabs/activitiesRollOver.png);cursor:pointer}
+#alumni{left:500px;height:45px;width:160px;background:url(images/Tabs/alumni.png);}
+#alumni:hover{background:url(images/Tabs/alumniRollOver.png);cursor:pointer;}
+#gallery{left:660px;height:45px;width:160px;background:url(images/Tabs/gallery.png);}
+#gallery:hover{background:url(images/Tabs/galleryRollOver.png);cursor:pointer;}
+#residents{left:820px;height:45px;width:160px;background:url(images/Tabs/residents.png);}
+#residents:hover{background:url(images/Tabs/residentsRollOver.png);cursor:pointer}
+#contact{left:980px;height:45px;width:160px;background:url(images/Tabs/contact.png);}
+#contact:hover{background:url(images/Tabs/contactRollOver.png);cursor:pointer;}
