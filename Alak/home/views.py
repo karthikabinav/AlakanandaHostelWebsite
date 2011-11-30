@@ -20,7 +20,7 @@ def login (request):
        
     form=forms.LoginForm()
     if 'logged_in' in request.session and request.session['logged_in'] == True:
-	return HttpResponseRedirect("%shome_page/" % settings.SITE_URL)	            
+	return HttpResponseRedirect("%smyHome/" % settings.SITE_URL)	            
             
     if request.method == 'POST':
         data = request.POST.copy()
@@ -32,10 +32,11 @@ def login (request):
                 auth.login (request, user)
                 print "The user is loggen in"
                 try:
-                    return HttpResponseRedirect("%shome_page/" % settings.SITE_URL)
+                    return HttpResponseRedirect("%smyHome/" % settings.SITE_URL)
                 except:
                     return HttpResponseRedirect("%s" % settings.SITE_URL)        
             else:
+                
                 request.session['invalid_login'] = True
                 request.session['logged_in'] = False
                 errors=[]
@@ -49,3 +50,35 @@ def login (request):
             error_message = "The details provided by you do not match please try again"
     return render_to_response('login.html', locals(), context_instance= global_context(request))
 
+
+def Profile(request):
+
+        try:
+            profile = UserProfile.objects.get(user = User)
+        
+        except:
+            return render_to_response('updateProfile.html', locals(), context_instance= global_context(request))
+        
+        
+        return render_to_response('profile.html', locals(), context_instance= global_context(request))
+        
+
+def updateProfile(request):
+    form = forms.UpdateProfileForm()
+    
+    if form.is_vaid():
+        display_name = form.cleaned_data["display_name"]
+        photo = form.cleaned_data["photo"]
+        room_number = form.cleaned_data["room_number"]
+        branch = form.cleaned_data["branch"]
+        roll_number = form.cleaned_data["roll_number"]
+        mobile_number = form.cleaned_data["mobile_number"]
+        
+        about_me = form.cleaned_data["about_me"]
+        
+        return render_to_response('profile.html', locals(), context_instance= global_context(request))
+    
+    else:
+        error = "Please fill the mandatory columns "
+        
+        return render_to_response('updateProfile.html', locals(), context_instance= global_context(request))     

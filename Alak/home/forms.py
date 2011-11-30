@@ -16,4 +16,11 @@ class LoginForm(forms.Form):
     username=forms.CharField(help_text='The username you were provided with')
     password=forms.CharField(widget=forms.PasswordInput, help_text='Your password')
     
-
+class UpdateProfileForm(forms.Form):
+    display_name = forms.CharField(help_text = 'Your display name ' )
+    photo = forms.CharField()
+    room_number = forms.CharField()
+    branch = forms.CharField()
+    roll_number = forms.CharField()
+    mobile_number = forms.CharField()
+    about_me = forms.CharField(help_text = 'A few words about yourself' )

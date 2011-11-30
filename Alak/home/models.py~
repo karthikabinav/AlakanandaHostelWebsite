@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 
+# the userprofile model.
 class UserProfile(models.Model):
     user 			= models.ForeignKey		(User, unique = True)
     photo           = models.TextField       ()
@@ -15,4 +16,5 @@ class UserProfile(models.Model):
 
     class Admin:
         pass
+
 

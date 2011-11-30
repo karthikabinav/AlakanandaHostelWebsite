@@ -8,8 +8,8 @@ admin.autodiscover()
 
 urlpatterns = patterns('',  
        
-      (r'^login/?$', 'autometer.login.views.login'),
-      
+      (r'^login/?$', 'Alak.home.views.login'),
+      (r'^myHome/?$', 'Alak.home.views.Profile'),    
 )   
 
 

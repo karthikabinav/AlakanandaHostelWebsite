@@ -9,7 +9,7 @@ admin.autodiscover()
 urlpatterns = patterns('',  
        
       (r'^login/?$', 'Alak.home.views.login'),
-      
+      (r'^myHome/?$', 'Alak.home.views.Profile'),    
 )   
 
 
