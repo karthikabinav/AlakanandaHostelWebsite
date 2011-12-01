@@ -9,7 +9,9 @@ admin.autodiscover()
 urlpatterns = patterns('',  
        
       (r'^login/?$', 'Alak.home.views.login'),
-      (r'^myHome/?$', 'Alak.home.views.Profile'),    
+      (r'^UpdateProfile/?$', 'Alak.home.views.updateProfile'),
+      (r'^myHome/?$', 'Alak.home.views.Profile'),
+      (r'^residents/(?P<user>.*)/?$', 'Alak.home.views.displayProfile'),        
 )   
 
 

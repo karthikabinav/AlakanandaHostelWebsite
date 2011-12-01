@@ -20,7 +20,7 @@ def login (request):
        
     form=forms.LoginForm()
     if 'logged_in' in request.session and request.session['logged_in'] == True:
-	return HttpResponseRedirect("%smyHome/" % settings.SITE_URL)	            
+	    return HttpResponseRedirect("%smyHome/" % settings.SITE_URL)	            
             
     if request.method == 'POST':
         data = request.POST.copy()
@@ -30,11 +30,12 @@ def login (request):
             user = auth.authenticate(username=form.cleaned_data['username'], password=form.cleaned_data["password"])
             if user is not None:
                 auth.login (request, user)
-                print "The user is loggen in"
-                try:
-                    return HttpResponseRedirect("%smyHome/" % settings.SITE_URL)
-                except:
-                    return HttpResponseRedirect("%s" % settings.SITE_URL)        
+                request.session['logged_in'] = True
+                #try:
+                print "mama" + user.username
+                return HttpResponseRedirect("%smyHome/" %(settings.SITE_URL))
+                #except:
+                    #return HttpResponseRedirect("%s" % settings.SITE_URL)        
             else:
                 
                 request.session['invalid_login'] = True
@@ -53,32 +54,86 @@ def login (request):
 
 def Profile(request):
 
-        try:
-            profile = UserProfile.objects.get(user = User)
         
+        
+        
+        #print correct_user == user
+        #print request.session['logged_in']
+        
+        user = request.user
+        try:
+            profile = UserProfile.objects.get(user__username = user.username)
+            #name = profile.display_name
+            
+            display_edit = True
         except:
-            return render_to_response('updateProfile.html', locals(), context_instance= global_context(request))
+            
+            return HttpResponseRedirect("%sUpdateProfile/" %(settings.SITE_URL))
         
         
         return render_to_response('profile.html', locals(), context_instance= global_context(request))
+    
         
 
 def updateProfile(request):
-    form = forms.UpdateProfileForm()
     
-    if form.is_vaid():
-        display_name = form.cleaned_data["display_name"]
-        photo = form.cleaned_data["photo"]
-        room_number = form.cleaned_data["room_number"]
-        branch = form.cleaned_data["branch"]
-        roll_number = form.cleaned_data["roll_number"]
-        mobile_number = form.cleaned_data["mobile_number"]
+    #print request.user.username
+    #print user
+    
+    user = request.user
+    
+    if request.method == "POST":
+        data = request.POST.copy()
+        form = forms.UpdateProfileForm(data)
         
-        about_me = form.cleaned_data["about_me"]
+        if form.is_valid():
+            user.email = form.cleaned_data['email']
+            user.set_password(form.cleaned_data['password'])
+            user.is_active= False
+            user.save()
+            display_name = form.cleaned_data["display_name"]
+            photo = form.cleaned_data["photo"]
+            room_number = form.cleaned_data["room_number"]
+            branch = form.cleaned_data["branch"]
+            roll_number = form.cleaned_data["roll_number"]
+            mobile_number = form.cleaned_data["mobile_number"]
+            
+            about_me = form.cleaned_data["about_me"]
+            display_edit = True
+            
+            userprofile = UserProfile(
+                        user = user,
+                        mobile_number = mobile_number,
+       		            display_name  = display_name,
+       		            photo = photo,
+       		            room_number = room_number,
+       		            branch = branch,
+       		            roll_number = roll_number,
+       		            about_me = about_me
+                        )
+                        
+            userprofile.save()
+            return HttpResponseRedirect("%smyHome/" %(settings.SITE_URL))
         
+        else:
+            error = "Please fill the mandatory columns "
+            
+            return render_to_response('updateProfile.html', locals(), context_instance= global_context(request))
+
+    else :
+        form = forms.UpdateProfileForm()
+        return render_to_response('updateProfile.html', locals(), context_instance= global_context(request))
+
+
+
+def displayProfile(request,user):
+
+              
+        try:
+            profile = UserProfile.objects.get(user__username = user)
+            print profile
+            display_edit = False
+        except:
+            raise Http404
+            
         return render_to_response('profile.html', locals(), context_instance= global_context(request))
-    
-    else:
-        error = "Please fill the mandatory columns "
-        
-        return render_to_response('updateProfile.html', locals(), context_instance= global_context(request))     

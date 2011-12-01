@@ -99,7 +99,7 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
 )
-
+AUTH_PROFILE_MODULE = "home.UserProfile"
 ROOT_URLCONF = 'Alak.urls'
 
 TEMPLATE_DIRS = (

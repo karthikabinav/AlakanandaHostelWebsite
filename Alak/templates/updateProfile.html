@@ -1,0 +1,14 @@
+{% block body %}
+
+    <form action="/UpdateProfile/" method="POST">
+        {%csrf_token%}
+            
+            <table>
+                {{form.as_table}}
+            </table>
+            
+            <input type="submit" value="Update" />
+            
+    </form>
+
+{% endblock %}

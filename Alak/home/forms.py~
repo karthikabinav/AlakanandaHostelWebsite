@@ -17,10 +17,51 @@ class LoginForm(forms.Form):
     password=forms.CharField(widget=forms.PasswordInput, help_text='Your password')
     
 class UpdateProfileForm(forms.Form):
+    
+    
+    password       = forms.CharField  (min_length=6,
+                                       max_length=30,
+                                       widget=forms.PasswordInput,
+                                       help_text='Enter a password that you can remember')
+    password_again = forms.CharField  (max_length=30,
+                                       widget=forms.PasswordInput,
+                                       help_text='Enter the same password that you entered above')
+    email          = forms.EmailField (help_text='Enter your e-mail address. eg, someone@gmail.com')
     display_name = forms.CharField(help_text = 'Your display name ' )
     photo = forms.CharField()
-    room_number = forms.CharField(help_text = 'Your display name ' )
+    room_number = forms.CharField()
     branch = forms.CharField()
     roll_number = forms.CharField()
     mobile_number = forms.CharField()
     about_me = forms.CharField(help_text = 'A few words about yourself' )
+    
+    class Meta:
+        model = models.UserProfile
+        fields=('display_name','password','password_again','photo','room_number','branch','email','roll_number','mobile_number','about_me')
+        
+    def clean_name(self):
+	if not self.cleaned_data['name'].replace(' ','').isalpha():
+	    raise forms.ValidationError(u'Names cannot contain anything other than alphabets.')
+	else:
+	    return self.cleaned_data['name']
+	  
+    
+    def clean_email(self):
+        if User.objects.filter(email=self.cleaned_data['email']):
+            pass
+        else:
+            return self.cleaned_data['email']
+        raise forms.ValidationError('This email address is already taken. Please choose another.')
+
+    def clean_password(self):
+        if self.prefix:
+            field_name1 = '%s-password'%self.prefix
+            field_name2 = '%s-password_again'%self.prefix
+        else:
+            field_name1 = 'password'
+            field_name2 = 'password_again'
+            
+        if self.data[field_name1] != '' and self.data[field_name1] != self.data[field_name2]:
+            raise forms.ValidationError ("The entered passwords do not match.")
+        else:
+            return self.data[field_name1]
