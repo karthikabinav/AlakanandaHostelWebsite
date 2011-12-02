@@ -3,13 +3,15 @@
 <head>
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <title>Alakananda Hostel</title>
-    <link rel="shortcut icon" href="images/favicon.ico" >
+    <link rel="shortcut icon" href="{{MEDIA_URL}}images/favicon.ico" >
     <meta name="keywords" content="Alakananda , Alak , IIT madras" />
     <meta name="description" content="Best hostel, Alakananda , Alak" />
-    <script src="/jquery.js"></script>
+    
 
-    <link href="style1.css" rel="stylesheet" type="text/css" media="screen" />
+    <link href="{{MEDIA_URL}}css/style1.css" rel="stylesheet" type="text/css" media="screen" />
 
+    {%block header%}
+    {%endblock%}
 
 </head>
 <body>
@@ -17,11 +19,13 @@
         <div id="page" style="height:900px;width:1200px;overflow:auto;"><div class="inner_copy"><div class="inner_copy"></div></div>
 		
 		<div id="content">
-		<div id="banner">
-		<img src="images/alakCentralImage.png" style="position:absolute;left:180px;height:512px;width:1024px;" alt="" />
+		{%block central_image%}
+		    <div id="banner">
+		    <img src="{{MEDIA_URL}}images/alakCentralImage.png" style="position:absolute;left:180px;height:512px;width:1024px;" alt="" />
 		
-		</div>
-        
+		    </div>
+        {%endblock%}
+        {%block fixed_icons%}
         <div id="Tabs"> 
             <a href="#"><div class = "tabImage" id ="home"></div></a>
             <div class=" tabImage" id="activities"></div>
@@ -29,22 +33,27 @@
             <div class=" tabImage" id="gallery"></div>
             <div class=" tabImage" id="residents"></div>
             <div class=" tabImage" id="contact"></div>
-            <div class ="tabImage" id="login"></div>
-            <div id ="password"></div>
-            <div id = "signin"></div>
             
-            <div id="AlakLogo" style="position:absolute;right:150px;top:10px;">
             
-                <img src="images/alaklogo.png" />
+                <div id="login">{%block login%}{%endblock%}</div>
+                
+                <!--<div id = "signin">{%block sigin%}{%endblock%}</div>-->
+            
+            <div id="AlakLogo" style="position:absolute;left:1150px;top:10px;">
+            
+                <img src="{{MEDIA_URL}}images/alaklogo.png" />
             </div>
-            </div>
+        </div>
+        
+        {%endblock%}    
             
+         {%block footer%}   
             <div id="footer"style="font-weight:bold;color:black">
         	
-                    <img src="images/credits/credits1.png"> <a href="http://www.facebook.com"><img src="images/credits/abhiram.png"></a> &nbsp<img src="images/credits/and.png">&nbsp<a href="http://www.facebook.com/karthikabinavs"> <img src="images/credits/kabinav.png"></a>  
+                    <img src="{{MEDIA_URL}}images/credits/credits1.png"> <a href="http://www.facebook.com"><img src="{{MEDIA_URL}}images/credits/abhiram.png"></a> &nbsp<img src="{{MEDIA_URL}}images/credits/and.png">&nbsp<a href="http://www.facebook.com/karthikabinavs"> <img src="{{MEDIA_URL}}images/credits/kabinav.png"></a>  
         
             </div>
-    
+        {%endblock%}    
         
 
             </div><!-- end of content -->

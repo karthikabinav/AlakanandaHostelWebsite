@@ -23,13 +23,20 @@
 		</div>
         
         <div id="Tabs"> 
-            <a href="#"><div class = "tabImage" id ="home"></a></div>
+            <a href="#"><div class = "tabImage" id ="home"></div></a>
             <div class=" tabImage" id="activities"></div>
             <div class=" tabImage" id="alumni"></div>
             <div class=" tabImage" id="gallery"></div>
             <div class=" tabImage" id="residents"></div>
             <div class=" tabImage" id="contact"></div>
-        
+            <div class ="tabImage" id="login"></div>
+            <div id ="password"></div>
+            <div id = "signin"></div>
+            
+            <div id="AlakLogo" style="position:absolute;right:150px;top:20px;">
+            
+                <img src="images/alaklogo.png" />
+            </div>
             </div>
             
             <div id="footer"style="font-weight:bold;color:black">
