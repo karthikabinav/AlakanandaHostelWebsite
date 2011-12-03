@@ -1,14 +1,17 @@
+{%extends "index.html"%}
+{%block central_image%}{%endblock%}
 {% block body %}
 
-    <form action="/UpdateProfile/" method="POST">
+<div id="body" style="position:absolute;left:250px;top:200px;">
+    <form enctype="multipart/form-data" action="/UpdateProfile/" method="POST">
         {%csrf_token%}
             
             <table>
                 {{form.as_table}}
             </table>
-            {{user}}
-            <input type="submit" value="Update" />
+            
+            <input type="submit" value="" />
             
     </form>
-
+</div>
 {% endblock %}

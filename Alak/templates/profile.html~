@@ -1,36 +1,122 @@
 
+{%extends "index.html"%}
+{%block central_image%}{%endblock%}
+{%block header%}
 
+<link href="{{MEDIA_URL}}css/profile.css" rel="stylesheet" type="text/css" media="screen" />
+
+{%endblock%}
+{%block pageTitle%}
+    {{profile.display_name}}'s - Profile
+{%endblock%}
 {% block body %}
-<table>
-    <tr>
-    <td>Display Name</td> <td>{{profile.display_name}}</td>
-    </tr>
+
+    <div id="photo" class="title">
+    <img src={{profile.photo.url}}/>
+    </div>
     
-    <tr>
-    <td>{{profile.photo}}</td>
-    </tr>
+    <div id="nameTitle" class="titleRight"><img src="{{MEDIA_URL}}images/profilePage/name.png"/>
+    </div>
     
-    <tr>
-    <td>Room Number</td> <td>{{profile.roome_number}}</td>
-    </tr>
+    <div id="nameDesc" class ="DescRight">
+    {{profile.display_name}}
+    </div>
     
-    <tr>
-    <td>Branch</td> <td>{{profile.branch}}</td>
-    </tr>
     
-    <tr>
-    <td>Mobile Number</td> <td>{{profile.mobile_number}}</td>
-    </tr>
     
-    <tr>
-    <td>Roll Number</td> <td>{{profile.roll_number}}</td>
-    </tr>
+    <div id="rollTitle"class="titleRight">
+    <img src="{{MEDIA_URL}}images/profilePage/rollNo.png"/>
+    </div>
+    <div id="rollDesc" class ="DescRight">
+    {{profile.roll_number}}
+    </div>
+
     
-    <tr>
-    <td>About Me</td> <td>{{profile.about_me}}</td>
-    </tr>
     
-</table>
+    
+    <div id="branchTitle" class="titleRight">
+        <img src="{{MEDIA_URL}}images/profilePage/branch.png"/>
+    </div>
+    
+    <div id="branchDesc" class="DescRight">
+        {{profile.branch}}
+    </div> 
+    
+    
+    
+   
+    
+    
+    <div id="homeTitle" class="titleRight">
+        <img src="{{MEDIA_URL}}images/profilePage/homeTown.png"/>
+    </div>
+    
+    <div id="homeDesc" class="DescRight">
+        {{profile.hometown}}  <!-- to be added in the backend -->
+    </div>
+    
+    
+    <div id="aboutTitle" class = "title">
+    <img src="{{MEDIA_URL}}images/profilePage/aboutMe.png"/>
+    </div>
+    
+    <div id="aboutDesc" class = "Desc">
+    {{profile.about_me}}
+    </div>
+    
+    
+    
+    
+    <div id="skillTitle" class="title">
+       <img src="{{MEDIA_URL}}images/profilePage/skillSet.png"/>  
+    </div>
+    
+    <div id="skillDesc" class = "Desc">
+        {{profile.skill}} <!--to be added in the backend -->
+    </div>
+    
+    
+    
+    <div id="contactTitle" class="title">
+    
+        <img src="{{MEDIA_URL}}images/profilePage/contactDetails.png"/>
+    </div>
+    
+    
+    <div id="phoneTitle" class = "title">
+    <img src="{{MEDIA_URL}}images/profilePage/phoneNo.png"/>
+    </div>
+    
+    <div id="phoneDesc">
+        {{profile.mobile_number}}
+    </div>
+    
+     <div id="roomTitle" class="title">
+        <img src="{{MEDIA_URL}}images/profilePage/roomNo.png"/>
+    </div>
+    
+    <div id="roomDesc">
+        {{profile.room_number}}
+    </div>
+    
+    <div id="emailTitle" class = "mail">
+       <img src="{{MEDIA_URL}}images/profilePage/email.png"/>     
+    </div>
+    
+    <div id="emailDesc">
+        {{profile.user.email}}
+    </div>
+
+
+
+    <div id="socialTitle" class = "mail">
+       <img src="{{MEDIA_URL}}images/profilePage/facebook.png"/>     
+    </div>
+    
+    <div id="socialDesc">
+        {{profile.social|urlize}}
+    </div>
+
 
 
 <!-- edit button to come here -->

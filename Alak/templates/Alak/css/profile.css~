@@ -1,0 +1,202 @@
+.title
+{
+    position:absolute;
+    left:250px;
+    
+
+
+}
+.titleRight
+{
+
+    position:absolute;
+    left:530px;
+
+
+}
+.DescRight
+{
+
+    position:absolute;
+    left:670px;
+    width:500px;
+}
+.mail
+{
+
+    position:absolute;
+    left:660px;
+
+}
+.Desc
+{
+
+    position:absolute;
+    left:250px;
+    width:820px;
+    height:200px;
+}
+#photo
+{
+    
+    top:120px;
+    width:180px;
+    height:180px;
+
+
+}
+#nameTitle
+{
+
+    top:120px;
+
+
+}
+#nameDesc
+{
+    top:115px;
+    font-size:20pt;
+
+}
+#rollTitle
+{
+
+    top:170px;
+
+
+}
+#rollDesc
+{
+    top:165px;
+    font-size:20pt;
+
+}
+#branchTitle
+{
+
+    top:220px;
+
+
+}
+#branchDesc
+{
+    top:215px;
+    font-size:20pt;
+
+}
+#homeTitle
+{
+
+    top:300px;
+
+
+}
+#homeDesc
+{
+    top:295px;
+    font-size:20pt;
+
+}
+#aboutTitle
+{
+
+    top:340px;
+    
+    
+
+}
+#aboutDesc
+{
+    top:380px;
+    
+    font-size:20pt;
+
+}
+#skillTitle
+{
+
+    top:540px;
+
+
+}
+#skillDesc
+{
+    top:570px;
+    
+    font-size:20pt;
+
+}
+#contactTitle
+{
+
+    top:720px;
+
+
+}
+#roomTitle
+{
+
+    top:800px;
+
+
+}
+#roomDesc
+{
+    position:absolute;
+    top:800px;
+    left:380px;
+    font-size:20pt;
+
+}
+#phoneTitle
+{
+
+    top:890px;
+
+
+}
+#phoneDesc
+{
+    position:absolute;
+    top:890px;
+    left:380px;
+    font-size:20pt;
+
+}
+
+#emailTitle
+{
+
+    top:800px;
+
+
+}
+#emailDesc
+{
+    position:absolute;
+    top:800px;
+    left:800px;
+    width:370px;
+    word-wrap:break-word;
+    font-size:20pt;
+
+}
+
+#socialTitle
+{
+
+    top:890px;
+
+
+}
+#socialDesc
+{
+    position:absolute;
+    top:890px;
+    left:800px;
+    width:370px;
+    word-wrap:break-word;
+    font-size:20pt;
+
+}
+

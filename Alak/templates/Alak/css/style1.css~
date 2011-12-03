@@ -1,0 +1,41 @@
+body {margin-top:50px;padding:0;background:#161616 url("http://localhost/Alak/images/finalBgd.png") no-repeat left top;font-family:Arial,Helvetica,sans-serif;font-size:12px;color:#8A8A8A}
+a {color:#AAFFBB}
+a:hover {text-decoration:none}
+a img {border:none}
+.inner_copy {border:0;color:#f00;float:left;width:50% !important;margin:-100% 0 0 0;overflow:hidden;line-height:0;padding:0;font-size:11px}
+#page {width:920px;margin:0 auto;padding:40px 20px 0 20px;}
+
+#banner {padding-bottom:20px;position:absolute;top:160px;left:0px;}
+/* Content */
+#content {float:left;width:580px}
+
+#footer {font-weight:bold;color:black;height:20px;margin:0 auto;padding-top:50px;position:absolute;float:center;top:970px;left:400px;}
+
+.tabImage{position:absolute;top:40px;}
+#home{left:180px;height:32px;width:112px;background:url("http://localhost/Alak/images/Tabs/home.png");}
+#home:hover{background:url(http://localhost/Alak/images/Tabs/homeRollOver.png);cursor:pointer}
+#activities{left:292px;height:32px;width:112px;background:url(http://localhost/Alak/images/Tabs/activities.png);}
+#activities:hover{background:url(http://localhost/Alak/images/Tabs/activitiesRollOver.png);cursor:pointer}
+#alumni{left:404px;height:32px;width:112px;background:url(http://localhost/Alak/images/Tabs/alumni.png);}
+#alumni:hover{background:url(http://localhost/Alak/images/Tabs/alumniRollOver.png);cursor:pointer;}
+#gallery{left:516px;height:32px;width:112px;background:url(http://localhost/Alak/images/Tabs/gallery.png);}
+#gallery:hover{background:url(http://localhost/Alak/images/Tabs/galleryRollOver.png);cursor:pointer;}
+#residents{left:628px;height:32px;width:112px;background:url(http://localhost/Alak/images/Tabs/residents.png);}
+#residents:hover{background:url(http://localhost/Alak/images/Tabs/residentsRollOver.png);cursor:pointer}
+#contact{left:740px;height:32px;width:112px;background:url(http://localhost/Alak/images/Tabs/contact.png);}
+#contact:hover{background:url(http://localhost/Alak/images/Tabs/contactRollOver.png);cursor:pointer;}
+#login{position:absolute;top:20px;left:860px;height:25px;width:170px;}
+
+input[type=submit,id="sigin"]
+{
+    position:relative;top:0px;left:40px;height:25px;width:90px;background:url(http://localhost/Alak/images/Tabs/login.png);
+  
+  
+  
+}
+
+input[type=submit]:hover
+{
+background:url(http://localhost/Alak/images/Tabs/loginRollOver.png);cursor:pointer;
+}
+

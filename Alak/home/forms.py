@@ -22,22 +22,25 @@ class UpdateProfileForm(forms.Form):
     password       = forms.CharField  (min_length=6,
                                        max_length=30,
                                        widget=forms.PasswordInput,
-                                       help_text='Enter a password that you can remember')
+                                       )
     password_again = forms.CharField  (max_length=30,
                                        widget=forms.PasswordInput,
-                                       help_text='Enter the same password that you entered above')
-    email          = forms.EmailField (help_text='Enter your e-mail address. eg, someone@gmail.com')
-    display_name = forms.CharField(help_text = 'Your display name ' )
-    photo = forms.CharField()
+                                       )
+    email          = forms.EmailField ()
+    display_name = forms.CharField()
+    hometown = forms.CharField()
+    skill_set = forms.CharField()
+    social = forms.URLField()
+    photo = forms.ImageField(required="false")
     room_number = forms.CharField()
     branch = forms.CharField()
     roll_number = forms.CharField()
     mobile_number = forms.CharField()
-    about_me = forms.CharField(help_text = 'A few words about yourself' )
+    about_me = forms.CharField()
     
     class Meta:
         model = models.UserProfile
-        fields=('display_name','password','password_again','photo','room_number','branch','email','roll_number','mobile_number','about_me')
+        fields=('display_name','password','password_again','photo','roll_number','branch','hometown','about_me','skill_set','phone_number','room_number','email','facebook')
         
     def clean_name(self):
 	if not self.cleaned_data['name'].replace(' ','').isalpha():

@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-    <title>Alakananda Hostel</title>
+    <title>{%block pageTitle%}Alakananda Hostel{%endblock%}</title>
     <link rel="shortcut icon" href="{{MEDIA_URL}}images/favicon.ico" >
     <meta name="keywords" content="Alakananda , Alak , IIT madras" />
     <meta name="description" content="Best hostel, Alakananda , Alak" />
@@ -46,7 +46,7 @@
         </div>
         
         {%endblock%}    
-            
+     <div id="body">       {%block body%}{%endblock%}</div>
          {%block footer%}   
             <div id="footer"style="font-weight:bold;color:black">
         	
