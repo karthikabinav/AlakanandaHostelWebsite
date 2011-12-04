@@ -9,30 +9,15 @@
     {%block login%}
      <form enctype="multipart/form-data" action="/logout/" method="GET">      
        {%csrf_token%} 
-        <button type="submit" id="update" style="border: 0; background: transparent;">
-        <img src="{{MEDIA_URL}}images/profilePage/logout.png" width="90" height="25" alt="submit" />
+        <button type="submit" id="logout">
+        
         </button>
        
     </form>
     
     
-    <form enctype="multipart/form-data" action="/changePassword/" method="GET">      
-       {%csrf_token%} 
-        <button type="submit" id="update" style="border: 0; background: transparent;position:absolute;top:0px;left:90px;">
-        <img src="{{MEDIA_URL}}images/profilePage/changePassword.png" width="90" height="25" alt="submit" />
-        </button>
-
-    </form>
+      
     
-    
-    
-    <form enctype="multipart/form-data" action="/myHome/" method="GET">      
-       {%csrf_token%} 
-        <button type="submit" id="update" style="border: 0; background: transparent;position:absolute;top:0px;left:180px;">
-        <img src="{{MEDIA_URL}}images/profilePage/myHome.png" width="90" height="25" alt="submit" />
-        </button>
-
-    </form>
     
         
     {%endblock%}

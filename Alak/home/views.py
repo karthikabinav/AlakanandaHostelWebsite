@@ -160,6 +160,8 @@ def editProfile(request):
             profile.skill_set = form.cleaned_data["skill_set"]
             profile.social = form.cleaned_data["social"]
             profile.photo = form.cleaned_data["photo"]
+            if profile.photo == False:
+                profile.photo = ""
             profile.room_number = form.cleaned_data["room_number"]
             profile.branch = form.cleaned_data["branch"]
             profile.roll_number = form.cleaned_data["roll_number"]
@@ -184,7 +186,7 @@ def editProfile(request):
     else:
        
         
-        if profile.photo:
+        if profile.photo and profile.photo != False:
             form = forms.UpdateProfileForm(initial={'email':profile.user.email,'display_name':profile.display_name,'hometown':profile.hometown,'skill_set':profile.skill_set,'social':profile.social,'room_number':profile.room_number,'branch':profile.branch,'mobile_number':profile.mobile_number,'roll_number':profile.roll_number,'about_me':profile.about_me,'photo':profile.photo})  
         else:
             form = forms.UpdateProfileForm(initial={'email':profile.user.email,'display_name':profile.display_name,'hometown':profile.hometown,'skill_set':profile.skill_set,'social':profile.social,'room_number':profile.room_number,'branch':profile.branch,'mobile_number':profile.mobile_number,'roll_number':profile.roll_number,'about_me':profile.about_me})

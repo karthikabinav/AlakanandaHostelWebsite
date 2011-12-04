@@ -14,30 +14,30 @@
     {%block login%}
      <form enctype="multipart/form-data" action="/logout/" method="GET">      
        {%csrf_token%} 
-        <button type="submit" id="update" style="border: 0; background: transparent;">
-        <img src="{{MEDIA_URL}}images/profilePage/logout.png" width="90" height="25" alt="submit" />
+        <button type="submit" id="logout">
+        
         </button>
        
     </form>
     
     
-    <form enctype="multipart/form-data" action="/changePassword/" method="GET">      
+     <form enctype="multipart/form-data" action="/changePassword/" method="GET">      
        {%csrf_token%} 
-        <button type="submit" id="update" style="border: 0; background: transparent;position:absolute;top:0px;left:90px;">
-        <img src="{{MEDIA_URL}}images/profilePage/changePassword.png" width="90" height="25" alt="submit" />
+        <button type="submit" id="password" style="border: 0;;position:absolute;top:0px;left:90px;">
+        
         </button>
 
     </form>
     
     
-    
-    <form enctype="multipart/form-data" action="/myHome/" method="GET">      
+     <form enctype="multipart/form-data" action="/myHome/" method="GET">      
        {%csrf_token%} 
-        <button type="submit" id="update" style="border: 0; background: transparent;position:absolute;top:0px;left:180px;">
-        <img src="{{MEDIA_URL}}images/profilePage/update.png" width="90" height="25" alt="submit" />
+        <button type="submit" id="home" style="border: 0;position:absolute;top:0px;left:178px;">
+        
         </button>
 
     </form>
+    
     
         
     {%endblock%}
@@ -47,7 +47,7 @@
 {% block body %}
 
     <div id="photo" class="title">
-    {%if profile.photo %}
+    {%if profile.photo and profile.photo != False %}
         <img src="{{profile.photo.url}}"/>
     {%else%}
         <img src="{{MEDIA_URL}}images/profilePage/noPhoto.jpg"/>

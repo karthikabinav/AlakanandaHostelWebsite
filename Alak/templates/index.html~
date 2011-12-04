@@ -6,8 +6,9 @@
     <link rel="shortcut icon" href="{{MEDIA_URL}}images/favicon.ico" >
     <meta name="keywords" content="Alakananda , Alak , IIT madras" />
     <meta name="description" content="Best hostel, Alakananda , Alak" />
-    
-
+    <script src="{{MEDIA_URL}}js/dropdown.js"></script>
+     <script src="{{MEDIA_URL}}js/jquery-latest.js"></script>
+    <link rel="stylesheet" type="text/css" href="{{MEDIA_URL}}css/css?family=Ubuntu:regular,bold&subset=Latin">
     <link href="{{MEDIA_URL}}css/style1.css" rel="stylesheet" type="text/css" media="screen" />
 
     {%block header%}
@@ -27,18 +28,66 @@
         {%endblock%}
         {%block fixed_icons%}
         <div id="Tabs"> 
-            <a href="#"><div class = "tabImage" id ="home"></div></a>
-            <div class=" tabImage" id="activities"></div>
-            <div class=" tabImage" id="alumni"></div>
-            <div class=" tabImage" id="gallery"></div>
-            <div class=" tabImage" id="residents"></div>
-            <div class=" tabImage" id="contact"></div>
+            
+           
+            <div class = "tabImage" id ="home" onmouseover="show('home');" onmouseout="hide('home');">
+                <div class = "tabChoices" id="homeChoices">            
+                 
+                </div>
+            
+            </div>
+            
+            
+            <div class=" tabImage" id="activities" onmouseover="show('activities');" onmouseout="hide('activities');">
+                <div class="tabChoices" id="activitiesChoices">
+                    <div class="menuContent1" ><a href="#">Tech-Soc</a></div>                   
+                    <div class="menuContent2"><a href="#">Lit-Soc</a></div>       
+                    <div class="menuContent3"><a href="#">Schroeter</a></div>
+                                
+                </div>  
+            </div>
+            
+            <div class = "tabImage" id ="alumni" onmouseover="show('alumni');" onmouseout="hide('alumni');">
+                <div class = "tabChoices" id="alumniChoices">            
+                 
+                </div>
+            
+            </div>
+            
+            <div class=" tabImage" id="gallery" onmouseover="show('gallery');" onmouseout="hide('gallery');">
+                <div class="tabChoices" id="galleryChoices">
+                    <div class="menuContent1" ><a href="#">Hostel Activities</a></div>                   
+                    <div class="menuContent2"><a href="#">Inter-Hostel</a></div>       
+                    <div class="menuContent3"><a href="#">Alakananda</a></div>
+                                
+                </div>  
+            </div>
+            
+            
+            <div class=" tabImage" id="residents" onmouseover="show('residents');" onmouseout="hide('residents');">
+                <div class="tabChoices" id="residentsChoices">
+                    <div class="menuContent1" ><a href="#">Ground Floor</a></div>                   
+                    <div class="menuContent2"><a href="#">First Floor</a></div>       
+                    <div class="menuContent3"><a href="#">Second Floor</a></div>
+                    <div class="menuContent4"><a href="#">Third Floor</a></div>
+                                
+                </div>  
+            </div>
+            <div class = "tabImage" id ="contact" onmouseover="show('contact');" onmouseout="hide('contact');">
+                <div class = "tabChoices" id="contactChoices">            
+                    <div class="menuContent1" ><a href="#">Secretaries</a></div>                   
+                    <div class="menuContent2"><a href="#">Warden</a></div>       
+                    
+                    
+                </div>
+            
+            </div>
             
             
                 <div id="login">{%block login%}
                     <p><form action="" method="post">
                     {% csrf_token %}
-                    <table>
+                    <table style="position:absolute;top:-10px;left:35px;">
      
                         <td style="width:40px;height:10px;">Username : {{ form.username }}</td></tr><tr>
                         <td style="width:40px;height:10px;">Password : {{form.password}}</td>
@@ -61,8 +110,9 @@
                 <!--<div id = "signin">{%block sigin%}{%endblock%}</div>-->
             
             <div id="AlakLogo" style="position:absolute;left:1150px;top:10px;">
-            
+            {%block top_right%}
                 <img src="{{MEDIA_URL}}images/alaklogo.png" />
+            {%endblock%}
             </div>
         </div>
         
