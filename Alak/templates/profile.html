@@ -9,10 +9,49 @@
 {%block pageTitle%}
     {{profile.display_name}}'s - Profile
 {%endblock%}
+
+{%if user.is_authenticated%}
+    {%block login%}
+     <form enctype="multipart/form-data" action="/logout/" method="GET">      
+       {%csrf_token%} 
+        <button type="submit" id="update" style="border: 0; background: transparent;">
+        <img src="{{MEDIA_URL}}images/profilePage/logout.png" width="90" height="25" alt="submit" />
+        </button>
+       
+    </form>
+    
+    
+    <form enctype="multipart/form-data" action="/changePassword/" method="GET">      
+       {%csrf_token%} 
+        <button type="submit" id="update" style="border: 0; background: transparent;position:absolute;top:0px;left:90px;">
+        <img src="{{MEDIA_URL}}images/profilePage/changePassword.png" width="90" height="25" alt="submit" />
+        </button>
+
+    </form>
+    
+    
+    
+    <form enctype="multipart/form-data" action="/myHome/" method="GET">      
+       {%csrf_token%} 
+        <button type="submit" id="update" style="border: 0; background: transparent;position:absolute;top:0px;left:180px;">
+        <img src="{{MEDIA_URL}}images/profilePage/myHome.png" width="90" height="25" alt="submit" />
+        </button>
+
+    </form>
+    
+        
+    {%endblock%}
+{%endif%}
+
+
 {% block body %}
 
     <div id="photo" class="title">
-    <img src="{{profile.photo.url}}"/>
+    {%if profile.photo %}
+        <img src="{{profile.photo.url}}"/>
+    {%else%}
+        <img src="{{MEDIA_URL}}images/profilePage/noPhoto.jpg"/>
+    {%endif%}
     </div>
     
     <div id="nameTitle" class="titleRight"><img src="{{MEDIA_URL}}images/profilePage/name.png"/>
@@ -120,9 +159,15 @@
 
 
 <!-- edit button to come here -->
-{% if display_edit %}
-
-
+{% if user.is_authenticated and display_edit %}
+  <form enctype="multipart/form-data" action="/EditProfile/" method="GET"> 
+  {% csrf_token %}
+    <div id="updateButton" style="position:absolute;top:950px;left:580px;">
+        <button type="submit" id="update" style="border: 0; background: transparent;">
+        <img src="{{MEDIA_URL}}images/profilePage/edit.png" width="90" height="25" alt="submit" />
+        </button>
+    </div>
+  </form>  
 {% endif %}
 
 {% endblock%}

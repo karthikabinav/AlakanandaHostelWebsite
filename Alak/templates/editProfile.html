@@ -1,13 +1,11 @@
-
 {%extends "index.html"%}
 {%block central_image%}{%endblock%}
+{%block login%}
+
 {%block header%}
 
 <link href="{{MEDIA_URL}}css/profile.css" rel="stylesheet" type="text/css" media="screen" />
 
-{%endblock%}
-{%block pageTitle%}
-    {{profile.display_name}}'s - Profile
 {%endblock%}
 
 {%if user.is_authenticated%}
@@ -34,7 +32,7 @@
     <form enctype="multipart/form-data" action="/myHome/" method="GET">      
        {%csrf_token%} 
         <button type="submit" id="update" style="border: 0; background: transparent;position:absolute;top:0px;left:180px;">
-        <img src="{{MEDIA_URL}}images/profilePage/update.png" width="90" height="25" alt="submit" />
+        <img src="{{MEDIA_URL}}images/profilePage/myHome.png" width="90" height="25" alt="submit" />
         </button>
 
     </form>
@@ -46,19 +44,21 @@
 
 {% block body %}
 
+    <div id="error" style="position:absolute;top:80px;left:300px;font-size:18pt;font-family:lucida;color:#FF0000;">
+    {{error}}
+    </div>
+    
+    <form enctype="multipart/form-data" action="/EditProfile/" method="POST">   
+     {% csrf_token %}
     <div id="photo" class="title">
-    {%if profile.photo %}
-        <img src="{{profile.photo.url}}"/>
-    {%else%}
-        <img src="{{MEDIA_URL}}images/profilePage/noPhoto.jpg"/>
-    {%endif%}
+    {{form.photo}}
     </div>
     
     <div id="nameTitle" class="titleRight"><img src="{{MEDIA_URL}}images/profilePage/name.png"/>
     </div>
     
     <div id="nameDesc" class ="DescRight">
-    {{profile.display_name}}
+    {{form.display_name}}
     </div>
     
     
@@ -67,7 +67,7 @@
     <img src="{{MEDIA_URL}}images/profilePage/rollNo.png"/>
     </div>
     <div id="rollDesc" class ="DescRight">
-    {{profile.roll_number}}
+    {{form.roll_number}}
     </div>
 
     
@@ -78,7 +78,7 @@
     </div>
     
     <div id="branchDesc" class="DescRight">
-        {{profile.branch}}
+        {{form.branch}}
     </div> 
     
     
@@ -91,7 +91,7 @@
     </div>
     
     <div id="homeDesc" class="DescRight">
-        {{profile.hometown}}  <!-- to be added in the backend -->
+        {{form.hometown}} 
     </div>
     
     
@@ -100,7 +100,7 @@
     </div>
     
     <div id="aboutDesc" class = "Desc">
-    {{profile.about_me}}
+    {{form.about_me}}
     </div>
     
     
@@ -111,7 +111,7 @@
     </div>
     
     <div id="skillDesc" class = "Desc">
-        {{profile.skill}} <!--to be added in the backend -->
+        {{form.skill_set}} 
     </div>
     
     
@@ -127,7 +127,7 @@
     </div>
     
     <div id="phoneDesc">
-        {{profile.mobile_number}}
+        {{form.mobile_number}}
     </div>
     
      <div id="roomTitle" class="title">
@@ -135,7 +135,7 @@
     </div>
     
     <div id="roomDesc">
-        {{profile.room_number}}
+        {{form.room_number}}
     </div>
     
     <div id="emailTitle" class = "mail">
@@ -143,7 +143,7 @@
     </div>
     
     <div id="emailDesc">
-        {{profile.user.email}}
+        {{form.email}}
     </div>
 
 
@@ -153,21 +153,15 @@
     </div>
     
     <div id="socialDesc">
-        {{profile.social|urlize}}
+        {{form.social}}
     </div>
-
-
-
-<!-- edit button to come here -->
-{% if user.is_authenticated and display_edit %}
-  <form enctype="multipart/form-data" action="/EditProfile/" method="GET"> 
-  {% csrf_token %}
+    
     <div id="updateButton" style="position:absolute;top:950px;left:580px;">
-        <button type="submit" id="update" style="border: 0; background: transparent;">
-        <img src="{{MEDIA_URL}}images/profilePage/edit.png" width="90" height="25" alt="submit" />
-        </button>
+    <button type="submit" id="update" style="border: 0; background: transparent">
+    <img src="{{MEDIA_URL}}images/profilePage/update.png" width="90" height="25" alt="submit" />
+    </button>
     </div>
-  </form>  
-{% endif %}
+    </form>
+
 
 {% endblock%}

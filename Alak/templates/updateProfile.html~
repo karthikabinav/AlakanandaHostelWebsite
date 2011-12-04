@@ -1,17 +1,162 @@
 {%extends "index.html"%}
 {%block central_image%}{%endblock%}
+{%block header%}
+
+<link href="{{MEDIA_URL}}css/profile.css" rel="stylesheet" type="text/css" media="screen" />
+
+{%endblock%}
+{{%if user.is_authenticated%}
+    {%block login%}
+     <form enctype="multipart/form-data" action="/logout/" method="GET">      
+       {%csrf_token%} 
+        <button type="submit" id="update" style="border: 0; background: transparent;">
+        <img src="{{MEDIA_URL}}images/profilePage/logout.png" width="90" height="25" alt="submit" />
+        </button>
+       
+    </form>
+    
+    
+    <form enctype="multipart/form-data" action="/changePassword/" method="GET">      
+       {%csrf_token%} 
+        <button type="submit" id="update" style="border: 0; background: transparent;position:absolute;top:0px;left:90px;">
+        <img src="{{MEDIA_URL}}images/profilePage/changePassword.png" width="90" height="25" alt="submit" />
+        </button>
+
+    </form>
+    
+    
+    
+    <form enctype="multipart/form-data" action="/myHome/" method="GET">      
+       {%csrf_token%} 
+        <button type="submit" id="update" style="border: 0; background: transparent;position:absolute;top:0px;left:180px;">
+        <img src="{{MEDIA_URL}}images/profilePage/update.png" width="90" height="25" alt="submit" />
+        </button>
+
+    </form>
+    
+        
+    {%endblock%}
+{%endif%}
 {% block body %}
 
-<div id="body" style="position:absolute;left:250px;top:200px;">
-    <form enctype="multipart/form-data" action="/UpdateProfile/" method="POST">
-        {%csrf_token%}
-            
-            <table>
-                {{form.as_table}}
-            </table>
-            
-            <input type="submit" value="" />
-            
+    <div id="error" style="position:absolute;top:80px;left:300px;font-size:18pt;font-family:lucida;color:#FF0000;">
+    {{error}}
+    </div>
+    
+    <form enctype="multipart/form-data" action="/UpdateProfile/" method="POST">   
+     {% csrf_token %}
+    <div id="photo" class="title">
+    {{form.photo}}
+    </div>
+    
+    <div id="nameTitle" class="titleRight"><img src="{{MEDIA_URL}}images/profilePage/name.png"/>
+    </div>
+    
+    <div id="nameDesc" class ="DescRight">
+    {{form.display_name}}
+    </div>
+    
+    
+    
+    <div id="rollTitle"class="titleRight">
+    <img src="{{MEDIA_URL}}images/profilePage/rollNo.png"/>
+    </div>
+    <div id="rollDesc" class ="DescRight">
+    {{form.roll_number}}
+    </div>
+
+    
+    
+    
+    <div id="branchTitle" class="titleRight">
+        <img src="{{MEDIA_URL}}images/profilePage/branch.png"/>
+    </div>
+    
+    <div id="branchDesc" class="DescRight">
+        {{form.branch}}
+    </div> 
+    
+    
+    
+   
+    
+    
+    <div id="homeTitle" class="titleRight">
+        <img src="{{MEDIA_URL}}images/profilePage/homeTown.png"/>
+    </div>
+    
+    <div id="homeDesc" class="DescRight">
+        {{form.hometown}} 
+    </div>
+    
+    
+    <div id="aboutTitle" class = "title">
+    <img src="{{MEDIA_URL}}images/profilePage/aboutMe.png"/>
+    </div>
+    
+    <div id="aboutDesc" class = "Desc">
+    {{form.about_me}}
+    </div>
+    
+    
+    
+    
+    <div id="skillTitle" class="title">
+       <img src="{{MEDIA_URL}}images/profilePage/skillSet.png"/>  
+    </div>
+    
+    <div id="skillDesc" class = "Desc">
+        {{form.skill_set}} 
+    </div>
+    
+    
+    
+    <div id="contactTitle" class="title">
+    
+        <img src="{{MEDIA_URL}}images/profilePage/contactDetails.png"/>
+    </div>
+    
+    
+    <div id="phoneTitle" class = "title">
+    <img src="{{MEDIA_URL}}images/profilePage/phoneNo.png"/>
+    </div>
+    
+    <div id="phoneDesc">
+        {{form.mobile_number}}
+    </div>
+    
+     <div id="roomTitle" class="title">
+        <img src="{{MEDIA_URL}}images/profilePage/roomNo.png"/>
+    </div>
+    
+    <div id="roomDesc">
+        {{form.room_number}}
+    </div>
+    
+    <div id="emailTitle" class = "mail">
+       <img src="{{MEDIA_URL}}images/profilePage/email.png"/>     
+    </div>
+    
+    <div id="emailDesc">
+        {{form.email}}
+    </div>
+
+
+
+    <div id="socialTitle" class = "mail">
+       <img src="{{MEDIA_URL}}images/profilePage/facebook.png"/>     
+    </div>
+    
+    <div id="socialDesc">
+        {{form.social}}
+    </div>
+    
+    <div id="updateButton" style="position:absolute;top:950px;left:580px;">
+    <button type="submit" id="update" style="border: 0; background: transparent;">
+    <img src="{{MEDIA_URL}}images/profilePage/update.png" width="90" height="25" alt="submit" />
+    </button>
+    </div>
     </form>
-</div>
-{% endblock %}
+
+
+{% endblock%}

@@ -51,7 +51,7 @@ def login (request):
             error_message = "The details provided by you do not match please try again"
     return render_to_response('login.html', locals(), context_instance= global_context(request))
 
-
+@needs_authentication
 def Profile(request):
 
         
@@ -61,6 +61,7 @@ def Profile(request):
         #print request.session['logged_in']
         
         user = request.user
+        
         try:
             profile = UserProfile.objects.get(user__username = user.username)
             #name = profile.display_name
@@ -74,7 +75,7 @@ def Profile(request):
         return render_to_response('profile.html', locals(), context_instance= global_context(request))
     
         
-
+@needs_authentication
 def updateProfile(request):
     
     #print request.user.username
@@ -83,13 +84,18 @@ def updateProfile(request):
     user = request.user
     
     if request.method == "POST":
-        data = request.POST.copy()
-        form = forms.UpdateProfileForm(data,request.FILES)
         
+        data = request.POST.copy()
+        try:    
+            form = forms.UpdateProfileForm(data,request.FILES)
+        
+        except:
+            form = forms.UpdateProfileForm(data)
+            
         if form.is_valid():
             user.email = form.cleaned_data['email']
-            user.set_password(form.cleaned_data['password'])
-            user.is_active= False
+            #user.set_password(form.cleaned_data['password'])
+            #user.is_active= False
             user.save()
             display_name = form.cleaned_data["display_name"]
             hometown = form.cleaned_data["hometown"]
@@ -122,15 +128,70 @@ def updateProfile(request):
             return HttpResponseRedirect("%smyHome/" %(settings.SITE_URL))
         
         else:
-            error = "Please fill the mandatory columns "
+            error = "Please fill the mandatory columns(Name,Roll Number,Branch,Room Number,Email) "
             
             return render_to_response('updateProfile.html', locals(), context_instance= global_context(request))
 
     else :
         form = forms.UpdateProfileForm()
+        error = "These columns are mandatory - (Name,Roll Number, Branch , Room Number , Email)"
         return render_to_response('updateProfile.html', locals(), context_instance= global_context(request))
+@needs_authentication
+def editProfile(request):
 
+    user = request.user
+    profile = UserProfile.objects.get(user__username = user.username)
+    if request.method == "POST":
+        
+        data = request.POST.copy()
+        try:    
+            form = forms.UpdateProfileForm(data,request.FILES)
+        
+        except:
+            form = forms.UpdateProfileForm(data)
+            
+        if form.is_valid():
+            profile.user.email = form.cleaned_data['email']
+            #user.set_password(form.cleaned_data['password'])
+            #user.is_active= False
+            profile.user.save()
+            profile.display_name = form.cleaned_data["display_name"]
+            profile.hometown = form.cleaned_data["hometown"]
+            profile.skill_set = form.cleaned_data["skill_set"]
+            profile.social = form.cleaned_data["social"]
+            profile.photo = form.cleaned_data["photo"]
+            profile.room_number = form.cleaned_data["room_number"]
+            profile.branch = form.cleaned_data["branch"]
+            profile.roll_number = form.cleaned_data["roll_number"]
+            profile.mobile_number = form.cleaned_data["mobile_number"]
+            
+            profile.about_me = form.cleaned_data["about_me"]
+            display_edit = True
+            
+                        
+            profile.save()
+            return HttpResponseRedirect("%smyHome/" %(settings.SITE_URL))
+        
+        else:
+            error = "Please fill the mandatory columns(Name,Roll Number,Branch,Room Number,Email) "
+            
+            return render_to_response('editProfile.html', locals(), context_instance= global_context(request))
 
+    
+    
+    
+    
+    else:
+       
+        
+        if profile.photo:
+            form = forms.UpdateProfileForm(initial={'email':profile.user.email,'display_name':profile.display_name,'hometown':profile.hometown,'skill_set':profile.skill_set,'social':profile.social,'room_number':profile.room_number,'branch':profile.branch,'mobile_number':profile.mobile_number,'roll_number':profile.roll_number,'about_me':profile.about_me,'photo':profile.photo})  
+        else:
+            form = forms.UpdateProfileForm(initial={'email':profile.user.email,'display_name':profile.display_name,'hometown':profile.hometown,'skill_set':profile.skill_set,'social':profile.social,'room_number':profile.room_number,'branch':profile.branch,'mobile_number':profile.mobile_number,'roll_number':profile.roll_number,'about_me':profile.about_me})
+                  
+            
+        error = "These columns are mandatory - (Name,Roll Number, Branch , Room Number , Email)"
+        return render_to_response('editProfile.html', locals(), context_instance= global_context(request))
 
 def displayProfile(request,user):
 
@@ -143,3 +204,46 @@ def displayProfile(request,user):
             raise Http404
             
         return render_to_response('profile.html', locals(), context_instance= global_context(request))
+        
+@needs_authentication
+def changePassword(request):
+    user = request.user
+    profile = UserProfile.objects.get(user__username = user.username)
+    
+    if request.method == "POST":
+        
+        data = request.POST.copy()
+            
+        form = forms.changePasswordForm(data)
+        
+            
+        if form.is_valid():
+            
+            profile.user.set_password(form.cleaned_data['password'])
+            #user.is_active= False
+            profile.user.save()
+            return HttpResponseRedirect("%smyHome/" %(settings.SITE_URL))
+        
+        else:
+            error = "Password(s) too short or dont match"
+            
+            return render_to_response('changePassword.html', locals(), context_instance= global_context(request))
+
+    
+    
+    
+    
+    else:
+       
+       error = ""
+       form = forms.changePasswordForm() 
+       return render_to_response('changePassword.html', locals(), context_instance= global_context(request))
+
+@needs_authentication
+def logout(request):
+    request.session['logged_in'] = False
+    auth.logout (request)
+    return HttpResponseRedirect("%slogin/" %(settings.SITE_URL))
+
+    
+

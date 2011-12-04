@@ -10,7 +10,10 @@ urlpatterns = patterns('',
        
       (r'^login/?$', 'Alak.home.views.login'),
       (r'^UpdateProfile/?$', 'Alak.home.views.updateProfile'),
+      (r'^EditProfile/?$', 'Alak.home.views.editProfile'),
       (r'^myHome/?$', 'Alak.home.views.Profile'),
+      (r'^changePassword/?$', 'Alak.home.views.changePassword'),
+      (r'^logout/?$', 'Alak.home.views.logout'),
       (r'^residents/(?P<user>.*)/?$', 'Alak.home.views.displayProfile'),        
 )   
 

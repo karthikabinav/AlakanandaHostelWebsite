@@ -5,7 +5,7 @@
 
 <p><form action="" method="post">
     {% csrf_token %}
-    <table>
+    <table style="position:absolute;top:-10px;left:40px;">
      
      <td style="width:40px;height:10px;">Username : {{ form.username }}</td></tr><tr>
      <td style="width:40px;height:10px;">Password : {{form.password}}</td>
@@ -14,7 +14,7 @@
             <tr>
        
             <td>               
-     <input type="submit" value="" /></td>
+     <input type="submit" value="" id="signin"/></td>
           
           </tr>
          
