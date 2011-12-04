@@ -31,7 +31,7 @@
     
     <form enctype="multipart/form-data" action="/myHome/" method="GET">      
        {%csrf_token%} 
-        <button type="submit" id="home" style="border: 0;position:absolute;top:0px;left:178px;">
+        <button type="submit" id="myhome" style="border: 0;position:absolute;top:0px;left:178px;">
         
         </button>
 
