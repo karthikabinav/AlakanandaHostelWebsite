@@ -56,9 +56,9 @@
             
             <div class=" tabImage" id="gallery" onmouseover="show('gallery');" onmouseout="hide('gallery');">
                 <div class="tabChoices" id="galleryChoices">
-                    <div class="menuContent1" ><a href="#">Hostel Activities</a></div>                   
+                    <div class="menuContent1" ><a href="#">Hostel</a></div>                   
                     <div class="menuContent2"><a href="#">Inter-Hostel</a></div>       
-                    <div class="menuContent3"><a href="#">Alakananda</a></div>
+                    <div class="menuContent3"><a href="#">Other</a></div>
                                 
                 </div>  
             </div>

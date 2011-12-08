@@ -160,7 +160,7 @@ def editProfile(request):
             profile.skill_set = form.cleaned_data["skill_set"]
             profile.social = form.cleaned_data["social"]
             profile.photo = form.cleaned_data["photo"]
-            if profile.photo == False
+            if profile.photo == False:
                 profile.photo = ""
             profile.room_number = form.cleaned_data["room_number"]
             profile.branch = form.cleaned_data["branch"]
