@@ -19,10 +19,11 @@ import sha,random,datetime
 def login (request):
        
     form=forms.LoginForm()
+    is_home = True
     if 'logged_in' in request.session and request.session['logged_in'] == True:
 	    return HttpResponseRedirect("%smyHome/" % settings.SITE_URL)	            
     
-    display_pass = True
+    
             
     if request.method == 'POST':
         data = request.POST.copy()
@@ -65,7 +66,7 @@ def Profile(request):
         #print request.session['logged_in']
         
         user = request.user
-        display_pass = True
+        
         try:
             profile = UserProfile.objects.get(user__username = user.username)
             #name = profile.display_name
@@ -80,12 +81,7 @@ def Profile(request):
         return render_to_response('profile.html', locals(), context_instance= global_context(request))
 
 
-def display_home(request):
-    display_pass = True
-    
-    return render_to_response('index.html', locals(), context_instance= global_context(request))
-    
-        
+       
 @needs_authentication
 def updateProfile(request):
     
@@ -93,7 +89,7 @@ def updateProfile(request):
     #print user
     
     user = request.user
-    display_pass = True
+    
     
     if request.method == "POST":
         
@@ -151,7 +147,7 @@ def updateProfile(request):
 @needs_authentication
 def editProfile(request):
     
-    display_pass = True
+    
     
     user = request.user
     profile = UserProfile.objects.get(user__username = user.username)
@@ -211,7 +207,7 @@ def editProfile(request):
 
 def displayProfile(request,user):
 
-        display_pass = True
+        
                   
         try:
             profile = UserProfile.objects.get(user__username = user)
@@ -226,8 +222,8 @@ def displayProfile(request,user):
 def changePassword(request):
     user = request.user
     profile = UserProfile.objects.get(user__username = user.username)
+    display_pass = False
     
-    display_pass = True
     if request.method == "POST":
         
         data = request.POST.copy()
@@ -244,7 +240,7 @@ def changePassword(request):
         
         else:
             error = "Password(s) too short or dont match"
-            display_pass = False
+            
             return render_to_response('changePassword.html', locals(), context_instance= global_context(request))
 
     
@@ -254,7 +250,7 @@ def changePassword(request):
     else:
        
        error = ""
-       display_pass = False
+       
        form = forms.changePasswordForm() 
        return render_to_response('changePassword.html', locals(), context_instance= global_context(request))
 
@@ -269,58 +265,56 @@ The code below this line is temporarily written to keep everything static.Note l
 
 """    
 def alumni(request):
-    display_pass = True
-    
+        
     return render_to_response('alumni.html', locals(), context_instance= global_context(request))
 
 def techsoc(request):
-    display_pass = True
+    
     
     return render_to_response('techsoc.html', locals(), context_instance= global_context(request))
     
 
 def litsoc(request):
-    display_pass = True
+    
     
     return render_to_response('litsoc.html', locals(), context_instance= global_context(request))
 
 def shroeter(request):
-    display_pass = True
+    
     
     return render_to_response('shroeter.html', locals(), context_instance= global_context(request))        
     
 def gallery_hostel(request):
-    display_pass = True
+    
     
     return render_to_response('gallery_hostel.html', locals(), context_instance= global_context(request)) 
     
 def gallery_inter_hostel(request):
-    display_pass = True
+    
     
     return render_to_response('gallery_inter_hostel.html', locals(), context_instance= global_context(request))                                           
     
 
 def gallery_other(request):
-    display_pass = True
-    
+        
     return render_to_response('gallery_other.html', locals(), context_instance= global_context(request))                                               
     
 
 def contact_secretaries(request):
-    display_pass = True
+    
     
     return render_to_response('contact_secretaries.html', locals(), context_instance= global_context(request))                                               
     
     
 
 def contact_warden(request):
-    display_pass = True
+    
     
     return render_to_response('contact_warden.html', locals(), context_instance= global_context(request))   
     
 
 
 def updated_soon(request):
-    display_pass = True
+    
     
     return render_to_response('willBeUpdatedSoon.html', locals(), context_instance= global_context(request))       

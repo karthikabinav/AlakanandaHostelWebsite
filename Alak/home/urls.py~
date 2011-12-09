@@ -23,7 +23,7 @@ urlpatterns = patterns('',
       (r'^gallery/other/?$', 'Alak.home.views.gallery_other'),
       (r'^contact/secretaries/?$', 'Alak.home.views.contact_secretaries'),
       (r'^contact/warden/?$', 'Alak.home.views.contact_warden'),
-      (r'^contact/warden/?$', 'Alak.home.views.updated_soon'),
+      (r'^willBeUpdatedSoon/?$', 'Alak.home.views.updated_soon'),
       (r'^residents/(?P<user>.*)/?$', 'Alak.home.views.displayProfile'),        
 )   
 

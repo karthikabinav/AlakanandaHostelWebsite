@@ -17,7 +17,7 @@ import re, md5, time
 # Generates a context with the most used variables
 def global_context(request):
   
-    context =  RequestContext (request,{'MEDIA_URL':settings.MEDIA_URL ,'user' : request.user,'latest_meet':cur_meets ,'number_initiated':no_initiated },  )
+    context =  RequestContext (request,{'MEDIA_URL':settings.MEDIA_URL ,'user' : request.user,'is_home':False},  )
             
     return context
 

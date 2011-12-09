@@ -18,8 +18,8 @@
 
        </form></p>
 
-
-{%else%}
+{%endif%}
+{%if user.is_authenticated%}
 
 <form enctype="multipart/form-data" action="/logout/" method="GET">      
        {%csrf_token%} 
@@ -37,7 +37,7 @@
         </button>
 
     </form>
-    
+    {%endif%}
     
      <form enctype="multipart/form-data" action="/myHome/" method="GET">      
        {%csrf_token%} 

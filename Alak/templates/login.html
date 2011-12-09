@@ -1,4 +1,4 @@
-{%if not user.is_authenticated%}
+{%if is_home%}
 <p><form action="" method="post">
     {% csrf_token %}
     <table style="position:absolute;top:-10px;left:35px;">
@@ -18,8 +18,8 @@
 
        </form></p>
 
-
-{%else%}
+{%endif%}
+{%if user.is_authenticated%}
 
 <form enctype="multipart/form-data" action="/logout/" method="GET">      
        {%csrf_token%} 
