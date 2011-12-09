@@ -222,7 +222,7 @@ def displayProfile(request,user):
 def changePassword(request):
     user = request.user
     profile = UserProfile.objects.get(user__username = user.username)
-    
+    display_pass = False
     
     if request.method == "POST":
         
@@ -240,7 +240,7 @@ def changePassword(request):
         
         else:
             error = "Password(s) too short or dont match"
-            display_pass = False
+            
             return render_to_response('changePassword.html', locals(), context_instance= global_context(request))
 
     

@@ -56,6 +56,13 @@ def login (request):
         
     return render_to_response('index.html', locals(), context_instance= global_context(request))
 
+
+def display_home(request):
+    user = request.user
+    if 'logged_in' in request.session and request.session['logged_in'] == True:
+        return render_to_response('index.html', locals(), context_instance= global_context(request))
+    return HttpResponseRedirect("%slogin/" %(settings.SITE_URL))
+
 @needs_authentication
 def Profile(request):
 
