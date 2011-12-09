@@ -5,23 +5,6 @@
 <link href="{{MEDIA_URL}}css/profile.css" rel="stylesheet" type="text/css" media="screen" />
 
 {%endblock%}
-{{%if user.is_authenticated%}
-    {%block login%}
-     <form enctype="multipart/form-data" action="/logout/" method="GET">      
-       {%csrf_token%} 
-        <button type="submit" id="logout">
-        
-        </button>
-       
-    </form>
-    
-    
-      
-    
-    
-        
-    {%endblock%}
-{%endif%}
 {% block body %}
 
     <div id="error" style="position:absolute;top:80px;left:300px;font-size:18pt;font-family:lucida;color:#FF0000;">

@@ -1,8 +1,4 @@
-
-{%extends "index.html"%}
-
-{%block login%}
-
+{%if not user.is_authenticated%}
 <p><form action="" method="post">
     {% csrf_token %}
     <table style="position:absolute;top:-10px;left:35px;">
@@ -23,4 +19,31 @@
        </form></p>
 
 
-{%endblock%}
+{%else%}
+
+<form enctype="multipart/form-data" action="/logout/" method="GET">      
+       {%csrf_token%} 
+        <button type="submit" id="logout">
+        
+        </button>
+       
+    </form>
+    
+    {% if display_pass %}
+     <form enctype="multipart/form-data" action="/changePassword/" method="GET">      
+       {%csrf_token%} 
+        <button type="submit" id="password" style="border: 0;;position:absolute;top:0px;left:90px;">
+        
+        </button>
+
+    </form>
+    {%endif%}
+    
+     <form enctype="multipart/form-data" action="/myHome/" method="GET">      
+       {%csrf_token%} 
+        <button type="submit" id="myhome" style="border: 0;position:absolute;top:0px;left:178px;">
+        
+        </button>
+
+    </form>
+    {%endif%}

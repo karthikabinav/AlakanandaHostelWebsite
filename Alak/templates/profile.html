@@ -1,4 +1,3 @@
-
 {%extends "index.html"%}
 {%block central_image%}{%endblock%}
 {%block header%}
@@ -9,41 +8,6 @@
 {%block pageTitle%}
     {{profile.display_name}}'s - Profile
 {%endblock%}
-
-{%if user.is_authenticated%}
-    {%block login%}
-     <form enctype="multipart/form-data" action="/logout/" method="GET">      
-       {%csrf_token%} 
-        <button type="submit" id="logout">
-        
-        </button>
-       
-    </form>
-    
-    
-     <form enctype="multipart/form-data" action="/changePassword/" method="GET">      
-       {%csrf_token%} 
-        <button type="submit" id="password" style="border: 0;;position:absolute;top:0px;left:90px;">
-        
-        </button>
-
-    </form>
-    
-    
-     <form enctype="multipart/form-data" action="/myHome/" method="GET">      
-       {%csrf_token%} 
-        <button type="submit" id="myhome" style="border: 0;position:absolute;top:0px;left:178px;">
-        
-        </button>
-
-    </form>
-    
-    
-        
-    {%endblock%}
-{%endif%}
-
-
 {% block body %}
 
     <div id="photo" class="title">
@@ -111,7 +75,7 @@
     </div>
     
     <div id="skillDesc" class = "Desc">
-        {{profile.skill}} <!--to be added in the backend -->
+        {{profile.skill_set}} <!--to be added in the backend -->
     </div>
     
     
