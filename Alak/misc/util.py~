@@ -17,36 +17,9 @@ import re, md5, time
 # Generates a context with the most used variables
 def global_context(request):
   
-    context =  RequestContext (request,{'MEDIA_URL':settings.MEDIA_URL ,'user' : request.user,'is_home':False},  )
+    context =  RequestContext (request,{'MEDIA_URL':settings.MEDIA_URL ,'user' : request.user,'is_home':False,'display_pass':True},  )
             
     return context
-
-
-# Convert Foo Contest <-> FooContest
-def camelize (str):
-    return str.replace(' ','').replace('!', '').replace('&', '').replace("'", '').replace('-', '')
-
-def decamelize (str):
-    p = re.compile (r'([A-Z][a-z]*)')
-    result = ''
-    for blob in p.split (str):
-        if blob != '':
-            result += blob + ' '
-    return result[:-1]
-
-# Take care of session variable
-def session_get (request, key, default=False):
-    value = request.session.get (key, False)
-    if value:
-        pass
-        del request.session[key]
-    else: 
-        value = default
-    return value
-
-
-            
-
 
 # Decorators
 

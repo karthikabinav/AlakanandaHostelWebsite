@@ -21,33 +21,6 @@ def global_context(request):
             
     return context
 
-
-# Convert Foo Contest <-> FooContest
-def camelize (str):
-    return str.replace(' ','').replace('!', '').replace('&', '').replace("'", '').replace('-', '')
-
-def decamelize (str):
-    p = re.compile (r'([A-Z][a-z]*)')
-    result = ''
-    for blob in p.split (str):
-        if blob != '':
-            result += blob + ' '
-    return result[:-1]
-
-# Take care of session variable
-def session_get (request, key, default=False):
-    value = request.session.get (key, False)
-    if value:
-        pass
-        del request.session[key]
-    else: 
-        value = default
-    return value
-
-
-            
-
-
 # Decorators
 
 # Force authentication first
@@ -61,30 +34,6 @@ def needs_authentication (func):
         else:
             return func (*__args, **__kwargs)
     return wrapper
-
-# Check for coords status. Use *after* needs_authentication. Always
-def coords_only (func):
-    def wrapper (*__args, **__kwargs):
-        request = __args[0]
-        userprofile= request.user.get_profile()
-        if userprofile.is_coord == True:
-            return func (*__args, **__kwargs)
-        else:
-            request.session['access_denied'] = True
-            return HttpResponseRedirect ("%shome/"%settings.SITE_URL)
-    return wrapper
-
-# Check for eventcore status. Use *after* needs_authentication. Always
-def event_cores_only (func):
-    def wrapper (*__args, **__kwargs):
-        request = __args[0]
-        if request.user.groups.filter(name="EventCores"):
-            return func (*__args, **__kwargs)
-        else:
-            request.session['access_denied'] = True
-            return HttpResponseRedirect ("%s/home/"%settings.SITE_URL)
-    return wrapper
-
 
 # Check for admin status. Use *after* needs_authentication. Always
 def admin_only (func):
