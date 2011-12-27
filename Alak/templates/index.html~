@@ -56,9 +56,9 @@
           </a>  
             <div class=" tabImage" id="gallery" onmouseover="show('gallery');" onmouseout="hide('gallery');">
                 <div class="tabChoices" id="galleryChoices">
-                    <div class="menuContent1" ><a href="/{{SITE_URL}}gallery/hostel/">Hostel</a></div>                   
-                    <div class="menuContent2"><a href="/{{SITE_URL}}gallery/inter-hostel/">Inter-Hostel</a></div>       
-                    <div class="menuContent3"><a href="/{{SITE_URL}}gallery/other/">Other</a></div>
+                    <div class="menuContent1" ><a href="/{{SITE_URL}}willBeUpdatedSoon/">Hostel</a></div>                   
+                    <div class="menuContent2"><a href="/{{SITE_URL}}willBeUpdatedSoon/">Inter-Hostel</a></div>       
+                    <div class="menuContent3"><a href="/{{SITE_URL}}willBeUpdatedSoon/">Other</a></div>
                                 
                 </div>  
             </div>
