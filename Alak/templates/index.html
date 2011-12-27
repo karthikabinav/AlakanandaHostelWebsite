@@ -21,13 +21,18 @@
 		
 		<div id="content">
 		{%block central_image%}
-		    <div id="banner">
+		    
+                   
+
+                   <div id="banner">
 		    <img src="{{MEDIA_URL}}images/alakCentralImage.jpg" style="position:absolute;left:180px;height:512px;width:1024px;" alt="" />
 		
 		    </div>
         {%endblock%}
         {%block fixed_icons%}
-        <div id="Tabs"> 
+           <!-- the under construction text -->
+<div id="underConstruction" style="position:absolute;top:10px;left:200px;"> <img src="{{MEDIA_URL}}images/underConstruction.png"/> </div>
+          <div id="Tabs"> 
             
            
          <a href = "{{SITE_URL}}/">   <div class = "tabImage" id ="home" onmouseover="show('home');" onmouseout="hide('home');">
@@ -98,7 +103,8 @@
             </div>
         </div>
         
-        {%endblock%}    
+        {%endblock%} 
+   
      <div id="body">
       {%block body%}
          <div id = "main_text">
