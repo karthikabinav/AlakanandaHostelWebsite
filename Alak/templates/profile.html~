@@ -1,4 +1,3 @@
-
 {%extends "index.html"%}
 {%block central_image%}{%endblock%}
 {%block header%}
@@ -12,7 +11,7 @@
 {% block body %}
 
     <div id="photo" class="title">
-    {%if profile.photo and profile.photo != False %}
+    {%if profile.photo != None and profile.photo.url != "{{MEDIA_URL}}False" %}
         <img src="{{profile.photo.url}}"/>
     {%else%}
         <img src="{{MEDIA_URL}}images/profilePage/noPhoto.jpg"/>

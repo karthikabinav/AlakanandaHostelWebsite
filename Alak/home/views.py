@@ -169,14 +169,16 @@ def editProfile(request):
             
         if form.is_valid():
             profile.user.email = form.cleaned_data['email']
-            #user.set_password(form.cleaned_data['password'])
-            #user.is_active= False
             profile.user.save()
             profile.display_name = form.cleaned_data["display_name"]
             profile.hometown = form.cleaned_data["hometown"]
             profile.skill_set = form.cleaned_data["skill_set"]
             profile.social = form.cleaned_data["social"]
-            profile.photo = form.cleaned_data["photo"]
+            if not form.cleaned_data["photo"] == None:
+                profile.photo = form.cleaned_data["photo"]
+            #if 'delete_main' in data:
+                #profile.delete_images(empty_image=True)
+            
             if profile.photo == False:
                 profile.photo = ""
             profile.room_number = form.cleaned_data["room_number"]
