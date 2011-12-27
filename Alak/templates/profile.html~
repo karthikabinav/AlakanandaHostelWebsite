@@ -11,7 +11,7 @@
 {% block body %}
 
     <div id="photo" class="title">
-    {%if profile.photo != None and profile.photo.url != "{{MEDIA_URL}}False" %}
+    {%if profile.photo and profile.photo != False %}
         <img src="{{profile.photo.url}}"/>
     {%else%}
         <img src="{{MEDIA_URL}}images/profilePage/noPhoto.jpg"/>
@@ -126,7 +126,7 @@
 {% if user.is_authenticated and display_edit %}
   <form enctype="multipart/form-data" action="/EditProfile/" method="GET"> 
   {% csrf_token %}
-    <div id="updateButton" style="position:absolute;top:950px;left:580px;">
+    <div id="updateButton" style="position:absolute;top:980px;left:580px;">
         <button type="submit" id="edit" style="border: 0;">
         
         </button>

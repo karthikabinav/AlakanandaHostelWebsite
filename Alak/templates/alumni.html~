@@ -1,5 +1,6 @@
 {%extends "index.html"%}
 {%block central_image%}{%endblock%}
+
 {%block header%}
 
 <link href="{{MEDIA_URL}}css/static.css" rel="stylesheet" type="text/css" media="screen" />
@@ -9,44 +10,31 @@
 {% block body %}
 
 <div id="static_body" >
-    <p>   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla sollicitudin congue risus. Nunc gravida tristique viverra. Nulla facilisi. Phasellus elit dui, ultricies id porttitor vitae, sodales nec metus. Ut pellentesque enim a dolor interdum vestibulum id eget nunc. Nunc facilisis quam eget ipsum sagittis porttitor. Curabitur sagittis dolor nec elit pellentesque et ornare odio fermentum. In dapibus, est vel laoreet dictum, diam sapien scelerisque nisl, sed vehicula arcu arcu quis enim. Curabitur felis metus, bibendum sit amet elementum in, fermentum ac diam. Sed tempus nulla ut mauris euismod at scelerisque mi placerat. Pellentesque rhoncus sapien in purus venenatis sed tincidunt augue faucibus.</p>
+    <h3 style="text-align:center">From the desk of the Alumni Affairs Secretary:</h3>
+<p>Greetings to all the alumni of ALAK,</p>
+   <p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspHope we have achieved our target of striking a chord with those nostalgic feelings and thoughts of yours that you fight everyday to overcome. Yes we are talking about the days when you were accustomed to sleeping at 3 in the morning and waking up to the rumblings of your stomach for the afternoon lunch. Welcome back to Alak everyone.</p>
+  <p> &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspThis is a section for all you alumni who have once roamed the corridors of this elite hostel and have painstakingly groomed your juniors to take over. We are proud of you guys and thanks for all the memories we share with you people. This is just a small token of our immense gratitude we have for you. Come back to the hostel and we will show you some more of this.</p>
+   <p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspWe are developing a profile section of all the alumni who have passed out based on the pass-out year for which we require a small profile of you including the name, nick, pass out year your current activities in life (hobbies, job profile, qualifications etc). Do pass me this info at the below mentioned email id.</p>
+  <p> &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspWe have many activities going on in the hostel and will keep you all updated about these in the website. My sincere request to all of you is to please join any one of the yahoo, google or orkut group that we have, so that we can have a contact with you.</p>
 
-    <p>
-        Pellentesque vel dui metus, porttitor iaculis orci. Phasellus in sagittis magna. Nullam laoreet ullamcorper felis, sed dictum velit interdum vel. In hac habitasse platea dictumst. Cras bibendum sollicitudin aliquam. Nullam interdum, nunc a sodales laoreet, risus sem dictum felis, nec ultricies sapien odio nec nisl. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Mauris aliquet leo vitae tortor faucibus faucibus. Nunc vel arcu non neque euismod semper sit amet non risus. Fusce massa ligula, pharetra a convallis a, fringilla ac nunc.
-    </p>
-    
-    
-    
-    <p>   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla sollicitudin congue risus. Nunc gravida tristique viverra. Nulla facilisi. Phasellus elit dui, ultricies id porttitor vitae, sodales nec metus. Ut pellentesque enim a dolor interdum vestibulum id eget nunc. Nunc facilisis quam eget ipsum sagittis porttitor. Curabitur sagittis dolor nec elit pellentesque et ornare odio fermentum. In dapibus, est vel laoreet dictum, diam sapien scelerisque nisl, sed vehicula arcu arcu quis enim. Curabitur felis metus, bibendum sit amet elementum in, fermentum ac diam. Sed tempus nulla ut mauris euismod at scelerisque mi placerat. Pellentesque rhoncus sapien in purus venenatis sed tincidunt augue faucibus.</p>
+<br/><br/><br/><br/><br/>
 
-    <p>
-        Pellentesque vel dui metus, porttitor iaculis orci. Phasellus in sagittis magna. Nullam laoreet ullamcorper felis, sed dictum velit interdum vel. In hac habitasse platea dictumst. Cras bibendum sollicitudin aliquam. Nullam interdum, nunc a sodales laoreet, risus sem dictum felis, nec ultricies sapien odio nec nisl. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Mauris aliquet leo vitae tortor faucibus faucibus. Nunc vel arcu non neque euismod semper sit amet non risus. Fusce massa ligula, pharetra a convallis a, fringilla ac nunc.
-    </p>
-    
-    <p>   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla sollicitudin congue risus. Nunc gravida tristique viverra. Nulla facilisi. Phasellus elit dui, ultricies id porttitor vitae, sodales nec metus. Ut pellentesque enim a dolor interdum vestibulum id eget nunc. Nunc facilisis quam eget ipsum sagittis porttitor. Curabitur sagittis dolor nec elit pellentesque et ornare odio fermentum. In dapibus, est vel laoreet dictum, diam sapien scelerisque nisl, sed vehicula arcu arcu quis enim. Curabitur felis metus, bibendum sit amet elementum in, fermentum ac diam. Sed tempus nulla ut mauris euismod at scelerisque mi placerat. Pellentesque rhoncus sapien in purus venenatis sed tincidunt augue faucibus.</p>
-
-    <p>
-        Pellentesque vel dui metus, porttitor iaculis orci. Phasellus in sagittis magna. Nullam laoreet ullamcorper felis, sed dictum velit interdum vel. In hac habitasse platea dictumst. Cras bibendum sollicitudin aliquam. Nullam interdum, nunc a sodales laoreet, risus sem dictum felis, nec ultricies sapien odio nec nisl. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Mauris aliquet leo vitae tortor faucibus faucibus. Nunc vel arcu non neque euismod semper sit amet non risus. Fusce massa ligula, pharetra a convallis a, fringilla ac nunc.
-    </p>
-    
-    
-    <p>   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla sollicitudin congue risus. Nunc gravida tristique viverra. Nulla facilisi. Phasellus elit dui, ultricies id porttitor vitae, sodales nec metus. Ut pellentesque enim a dolor interdum vestibulum id eget nunc. Nunc facilisis quam eget ipsum sagittis porttitor. Curabitur sagittis dolor nec elit pellentesque et ornare odio fermentum. In dapibus, est vel laoreet dictum, diam sapien scelerisque nisl, sed vehicula arcu arcu quis enim. Curabitur felis metus, bibendum sit amet elementum in, fermentum ac diam. Sed tempus nulla ut mauris euismod at scelerisque mi placerat. Pellentesque rhoncus sapien in purus venenatis sed tincidunt augue faucibus.</p>
-
-    <p>
-        Pellentesque vel dui metus, porttitor iaculis orci. Phasellus in sagittis magna. Nullam laoreet ullamcorper felis, sed dictum velit interdum vel. In hac habitasse platea dictumst. Cras bibendum sollicitudin aliquam. Nullam interdum, nunc a sodales laoreet, risus sem dictum felis, nec ultricies sapien odio nec nisl. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Mauris aliquet leo vitae tortor faucibus faucibus. Nunc vel arcu non neque euismod semper sit amet non risus. Fusce massa ligula, pharetra a convallis a, fringilla ac nunc.
-    </p>
-    
-    <p>   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla sollicitudin congue risus. Nunc gravida tristique viverra. Nulla facilisi. Phasellus elit dui, ultricies id porttitor vitae, sodales nec metus. Ut pellentesque enim a dolor interdum vestibulum id eget nunc. Nunc facilisis quam eget ipsum sagittis porttitor. Curabitur sagittis dolor nec elit pellentesque et ornare odio fermentum. In dapibus, est vel laoreet dictum, diam sapien scelerisque nisl, sed vehicula arcu arcu quis enim. Curabitur felis metus, bibendum sit amet elementum in, fermentum ac diam. Sed tempus nulla ut mauris euismod at scelerisque mi placerat. Pellentesque rhoncus sapien in purus venenatis sed tincidunt augue faucibus.</p>
-
-    <p>
-        Pellentesque vel dui metus, porttitor iaculis orci. Phasellus in sagittis magna. Nullam laoreet ullamcorper felis, sed dictum velit interdum vel. In hac habitasse platea dictumst. Cras bibendum sollicitudin aliquam. Nullam interdum, nunc a sodales laoreet, risus sem dictum felis, nec ultricies sapien odio nec nisl. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Mauris aliquet leo vitae tortor faucibus faucibus. Nunc vel arcu non neque euismod semper sit amet non risus. Fusce massa ligula, pharetra a convallis a, fringilla ac nunc.
-    </p>
-    
-    
-    <p>   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla sollicitudin congue risus. Nunc gravida tristique viverra. Nulla facilisi. Phasellus elit dui, ultricies id porttitor vitae, sodales nec metus. Ut pellentesque enim a dolor interdum vestibulum id eget nunc. Nunc facilisis quam eget ipsum sagittis porttitor. Curabitur sagittis dolor nec elit pellentesque et ornare odio fermentum. In dapibus, est vel laoreet dictum, diam sapien scelerisque nisl, sed vehicula arcu arcu quis enim. Curabitur felis metus, bibendum sit amet elementum in, fermentum ac diam. Sed tempus nulla ut mauris euismod at scelerisque mi placerat. Pellentesque rhoncus sapien in purus venenatis sed tincidunt augue faucibus.</p>
-
-    <p>
-        Pellentesque vel dui metus, porttitor iaculis orci. Phasellus in sagittis magna. Nullam laoreet ullamcorper felis, sed dictum velit interdum vel. In hac habitasse platea dictumst. Cras bibendum sollicitudin aliquam. Nullam interdum, nunc a sodales laoreet, risus sem dictum felis, nec ultricies sapien odio nec nisl. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Mauris aliquet leo vitae tortor faucibus faucibus. Nunc vel arcu non neque euismod semper sit amet non risus. Fusce massa ligula, pharetra a convallis a, fringilla ac nunc.
-    </p>
+<p style="font-weight:bold;text-align:center">Some useful links and id's:<br/>
+<table style="text-align:center;position:absolute;left:150px;">
+<tr><td>
+Mail id of the Alumni Affairs Secretary</td><td style="color:green"> aniruddhpadia@gmail.com</td></tr>
+<tr>
+<td>
+Phone number</td><td> +91 99622 47527</td></tr>
+<tr><td>
+Google group</td> <td> alakananda-hostel@googlegroups.com</td></tr>
+<tr>
+<td>
+Yahoo group </td><td> Alak-naama@yahoogroups.com</td></tr>
+<tr>
+<td>
+Photo blog </td><td> alaktus.tumblr.com</td></tr>
+</table>
+</p>
 </div>    
 {% endblock%}

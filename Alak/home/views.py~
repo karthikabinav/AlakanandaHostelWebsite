@@ -176,11 +176,9 @@ def editProfile(request):
             profile.social = form.cleaned_data["social"]
             if not form.cleaned_data["photo"] == None:
                 profile.photo = form.cleaned_data["photo"]
-            #if 'delete_main' in data:
-                #profile.delete_images(empty_image=True)
-            print profile.photo
-            #if profile.photo == False:
-                #profile.photo = ""
+                       
+            if profile.photo == False:
+                profile.photo = ""
             profile.room_number = form.cleaned_data["room_number"]
             profile.branch = form.cleaned_data["branch"]
             profile.roll_number = form.cleaned_data["roll_number"]

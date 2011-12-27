@@ -176,9 +176,7 @@ def editProfile(request):
             profile.social = form.cleaned_data["social"]
             if not form.cleaned_data["photo"] == None:
                 profile.photo = form.cleaned_data["photo"]
-            #if 'delete_main' in data:
-                #profile.delete_images(empty_image=True)
-            
+                       
             if profile.photo == False:
                 profile.photo = ""
             profile.room_number = form.cleaned_data["room_number"]
@@ -292,7 +290,7 @@ def shroeter(request):
     
     
     return render_to_response('shroeter.html', locals(), context_instance= global_context(request))        
-    
+"""    
 def gallery_hostel(request):
     
     
@@ -307,7 +305,7 @@ def gallery_inter_hostel(request):
 def gallery_other(request):
         
     return render_to_response('gallery_other.html', locals(), context_instance= global_context(request))                                               
-    
+"""    
 
 def contact_secretaries(request):
     

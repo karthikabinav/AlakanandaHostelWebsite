@@ -102,12 +102,14 @@
      <div id="body">
       {%block body%}
          <div id = "main_text">
-                <p>   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla sollicitudin congue risus. Nunc gravida tristique viverra. Nulla facilisi. Phasellus elit dui, ultricies id porttitor vitae, sodales nec metus. Ut pellentesque enim a dolor interdum vestibulum id eget nunc. Nunc facilisis quam eget ipsum sagittis porttitor. Curabitur sagittis dolor nec elit pellentesque et ornare odio fermentum. In dapibus, est vel laoreet dictum, diam sapien scelerisque nisl, sed vehicula arcu arcu quis enim. Curabitur felis metus, bibendum sit amet elementum in, fermentum ac diam. Sed tempus nulla ut mauris euismod at scelerisque mi placerat. Pellentesque rhoncus sapien in purus venenatis sed tincidunt augue faucibus.</p>
+                <p>   &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Alakananda, built in the 1970s has been home away from home to some of the finest students of IIT Madras. Housing about 250 students, its walls speak of stories of the past and the present. It has seen the transformation of IIT as a brand of global repute. Named after the great river, a continuous flow of promising talent is what we pride ourselves in.<br/><br/>
+        &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Alak, as we fondly call our hostel, is an abode of chaos. Sports, music, acads come together in a potent blend of ecstasy. Coming from various parts of the country, we are the most varied, talented and envied among the students of IIT. We at Alakananda thrive at being the best in everything, whether it's our rock band "Baba's Black Sheep" sweeping away everyone else in Lit-Soc or the volley team smashing away to the gold in Schroeter or the nine pointers beating everyone else when it comes to acads.</p>
+           </div>     
             {%endblock%}
 
 </div>
          {%block footer%}   
-            <div id="footer"style="font-weight:bold;color:black">
+            <div id="footer"style="font-weight:bold;color:black;top:1020px;">
         	
                     <img src="{{MEDIA_URL}}images/credits/credits1.png"> <a href="http://www.facebook.com"><img src="{{MEDIA_URL}}images/credits/abhiram.png"></a> &nbsp<img src="{{MEDIA_URL}}images/credits/and.png">&nbsp<a href="http://www.facebook.com/karthikabinavs"> <img src="{{MEDIA_URL}}images/credits/kabinav.png"></a>  
         

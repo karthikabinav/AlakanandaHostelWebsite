@@ -7,7 +7,7 @@ import django.contrib.auth.views
 admin.autodiscover()
 
 urlpatterns = patterns('',  
-      (r'^/?$', 'Alak.home.views.login'), 
+      (r'^/?$', 'Alak.home.views.display_home'), 
       (r'^login/?$', 'Alak.home.views.login'),
       (r'^UpdateProfile/?$', 'Alak.home.views.updateProfile'),
       (r'^EditProfile/?$', 'Alak.home.views.editProfile'),
@@ -18,7 +18,7 @@ urlpatterns = patterns('',
       (r'^activities/techsoc/?$', 'Alak.home.views.techsoc'),
       (r'^activities/litsoc/?$', 'Alak.home.views.litsoc'),
       (r'^activities/shroeter/?$', 'Alak.home.views.shroeter'),
-      (r'^gallery/hostel/?$', 'Alak.home.views.gallery_hostel'),
+      (r'^gallery/hostel/?$', 'Alak.home.views.updated_soon'),
       (r'^gallery/inter-hostel/?$', 'Alak.home.views.gallery_inter_hostel'),
       (r'^gallery/other/?$', 'Alak.home.views.gallery_other'),
       (r'^contact/secretaries/?$', 'Alak.home.views.contact_secretaries'),
