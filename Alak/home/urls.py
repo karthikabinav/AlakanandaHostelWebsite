@@ -24,6 +24,7 @@ urlpatterns = patterns('',
       (r'^contact/secretaries/?$', 'Alak.home.views.contact_secretaries'),
       (r'^contact/warden/?$', 'Alak.home.views.contact_warden'),
       (r'^willBeUpdatedSoon/?$', 'Alak.home.views.updated_soon'),
+      (r'^qwerThisasdfISzxcvPASSWORD/?$', 'Alak.home.views.CreateUsers'),
       (r'^residents/(?P<user>.*)/?$', 'Alak.home.views.displayProfile'),        
 )   
 

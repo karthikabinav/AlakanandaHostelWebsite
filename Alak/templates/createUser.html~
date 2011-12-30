@@ -1,0 +1,25 @@
+{%extends "index.html"%}
+{%block central_image%}{%endblock%}
+{%block header%}
+
+<link href="{{MEDIA_URL}}css/static.css" rel="stylesheet" type="text/css" media="screen" />
+
+{%endblock%}
+
+{% block body %}
+
+<div id="static_body" >
+    <form enctype="multipart/form-data" action="/qwerThisasdfISzxcvPASSWORD/" method="POST">   
+     {% csrf_token %}
+    
+        <table>
+        
+        
+        </table>
+    <button type="submit" id="update" style="border: 0;">
+    
+    </button>
+    </div>
+    </form>
+</div>    
+{% endblock%}

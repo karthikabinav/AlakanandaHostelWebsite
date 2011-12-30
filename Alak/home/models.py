@@ -50,4 +50,11 @@ class UserProfile(models.Model):
     class Admin:
         pass
 
-
+class AddUsers(models.Model):
+    
+    username = models.CharField(max_length = 100)
+    password = models.CharField(max_length = 100)
+    email    = models.CharField(max_length = 100)
+    
+    class Admin:
+        pass

@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 import os
+from Alak import settings
 # the userprofile model.
 class UserProfile(models.Model):
     user 			= models.ForeignKey		(User, unique = True)
@@ -49,4 +50,11 @@ class UserProfile(models.Model):
     class Admin:
         pass
 
-
+class AddUsers(models.Model):
+    
+    username = models.CharField(max_length = 100)
+    password = models.CharField(max_length = 100)
+    email = models.CharField(max_length = 100)
+    
+    class Admin:
+        pass

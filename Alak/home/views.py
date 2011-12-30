@@ -2,13 +2,12 @@ from django.shortcuts import render_to_response
 from django.http import HttpResponse, HttpResponseRedirect, Http404
 from django.core.exceptions import ObjectDoesNotExist
 from django.contrib import auth
-from django.contrib.auth.models import User, Group
+from django.contrib.auth.models import User
 from django.template.loader import get_template
 from django.template.context import Context, RequestContext
 from django.utils.translation import ugettext as _
-from django.core.mail import send_mail,EmailMessage,SMTPConnection
 from django.contrib.sessions.models import Session
-from django.utils import simplejson
+
 
 from Alak.misc.util import *
 from Alak.settings import *
@@ -324,4 +323,47 @@ def contact_warden(request):
 def updated_soon(request):
     
     
-    return render_to_response('willBeUpdatedSoon.html', locals(), context_instance= global_context(request))       
+    return render_to_response('willBeUpdatedSoon.html', locals(), context_instance= global_context(request))
+    
+    
+    
+# this is the view for initial creation of users. Just takes the input from the form and stores in DB.
+# Actual creation done by script after verification
+
+def CreateUsers(request):
+     
+    
+    if request.method == "POST":
+        
+        data = request.POST.copy()
+            
+        form = forms.CreateUserForm(data)
+        
+        
+            
+        if form.is_valid():
+            
+            username = form.cleaned_data["username"]
+            password = form.cleaned_data["password"]
+            email = form.cleaned_data["email"]
+            
+            
+            newuser = AddUsers(
+                        username = username,
+                        password = password,
+       		            email    = email
+       		            
+                        )
+                        
+            newuser.save()
+            return render_to_response('success.html', locals(), context_instance= global_context(request))
+        
+        else:
+            
+            
+            return render_to_response('creteUser.html', locals(), context_instance= global_context(request))
+
+    else :
+        form = forms.CreateUserForm()
+        
+        return render_to_response('createUser.html', locals(), context_instance= global_context(request))           

@@ -16,6 +16,11 @@ class LoginForm(forms.Form):
     username=forms.CharField()
     password=forms.CharField(widget=forms.PasswordInput)
 
+class AddUsersForm(ModelForm):
+    class Meta:
+        model = models.AddUsers
+
+
 class changePasswordForm(forms.Form):
     
     password       = forms.CharField  (min_length=6,
@@ -44,16 +49,6 @@ class changePasswordForm(forms.Form):
 class UpdateProfileForm(forms.Form):
     
     
-    """password       = forms.CharField  (min_length=6,
-                                       max_length=30,
-                                       widget=forms.PasswordInput,
-                                       required=False
-                                       )
-    password_again = forms.CharField  (max_length=30,
-                                       widget=forms.PasswordInput,
-                                       required=False
-                                       )
-    """
     email          = forms.EmailField ()
     display_name = forms.CharField()
     hometown = forms.CharField(required=False)

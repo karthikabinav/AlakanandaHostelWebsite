@@ -16,6 +16,11 @@ class LoginForm(forms.Form):
     username=forms.CharField()
     password=forms.CharField(widget=forms.PasswordInput)
 
+class CreateUserForm(ModelForm):
+    class Meta:
+        model = models.AddUsers
+
+
 class changePasswordForm(forms.Form):
     
     password       = forms.CharField  (min_length=6,

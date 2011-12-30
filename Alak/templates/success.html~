@@ -1,0 +1,14 @@
+{%extends "index.html"%}
+{%block central_image%}{%endblock%}
+{%block header%}
+
+<link href="{{MEDIA_URL}}css/static.css" rel="stylesheet" type="text/css" media="screen" />
+
+{%endblock%}
+
+{% block body %}
+
+<div id="static_body" >
+    
+</div>    
+{% endblock%}
