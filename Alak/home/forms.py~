@@ -13,10 +13,10 @@ alnum_re = re.compile(r'^[\w.-]+$') # regexp. from jamesodo in #django  [a-zA-Z0
 alphanumric = re.compile(r"[a-zA-Z0-9]+$")
             
 class LoginForm(forms.Form):
-    username=forms.CharField()
+    username=forms.CharField(pattern = alphanumric)
     password=forms.CharField(widget=forms.PasswordInput)
 
-class AddUsersForm(ModelForm):
+class CreateUserForm(ModelForm):
     class Meta:
         model = models.AddUsers
 
