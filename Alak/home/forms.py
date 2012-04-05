@@ -7,14 +7,14 @@ from django.template import Template, Context
 from django.utils.safestring import mark_safe
 
 from Alak.home import models
-from Alak import settings
+
  
 alnum_re = re.compile(r'^[\w.-]+$') # regexp. from jamesodo in #django  [a-zA-Z0-9_.]
 alphanumric = re.compile(r"[a-zA-Z0-9]+$")
             
 class LoginForm(forms.Form):
-    username=forms.CharField()
-    password=forms.CharField(widget=forms.PasswordInput)
+    username = forms.CharField()
+    password = forms.CharField(widget=forms.PasswordInput)
 
 class CreateUserForm(ModelForm):
     class Meta:
@@ -23,7 +23,7 @@ class CreateUserForm(ModelForm):
 
 class changePasswordForm(forms.Form):
     
-    password       = forms.CharField  (min_length=6,
+    password = forms.CharField  (min_length=6,
                                        max_length=30,
                                        widget=forms.PasswordInput,
                                        )
@@ -35,8 +35,8 @@ class changePasswordForm(forms.Form):
     
     def clean_password(self):
         if self.prefix:
-            field_name1 = '%s-password'%self.prefix
-            field_name2 = '%s-password_again'%self.prefix
+            field_name1 = '%s-password' % self.prefix
+            field_name2 = '%s-password_again' % self.prefix
         else:
             field_name1 = 'password'
             field_name2 = 'password_again'
@@ -49,24 +49,24 @@ class changePasswordForm(forms.Form):
 class UpdateProfileForm(forms.Form):
     
     
-    email          = forms.EmailField ()
+    email = forms.EmailField ()
     display_name = forms.CharField()
     hometown = forms.CharField(required=False)
-    skill_set = forms.CharField(widget=forms.Textarea(attrs={'cols': 100, 'rows': 7}),max_length=200,required=False)
+    skill_set = forms.CharField(widget=forms.Textarea(attrs={'cols': 100, 'rows': 7}), max_length=200, required=False)
     social = forms.URLField(required=False)
     photo = forms.ImageField(required=False,)
     room_number = forms.CharField()
     branch = forms.CharField()
     roll_number = forms.CharField()
     mobile_number = forms.CharField(required=False)
-    about_me = forms.CharField(widget=forms.Textarea(attrs={'cols': 100, 'rows': 8}),max_length = 200,required=False)
+    about_me = forms.CharField(widget=forms.Textarea(attrs={'cols': 100, 'rows': 8}), max_length=200, required=False)
     
     class Meta:
         model = models.UserProfile
-        fields=('display_name','password','password_again','photo','roll_number','branch','hometown','about_me','skill_set','phone_number','room_number','email','facebook')
+        fields = ('display_name', 'password', 'password_again', 'photo', 'roll_number', 'branch', 'hometown', 'about_me', 'skill_set', 'phone_number', 'room_number', 'email', 'facebook')
         
     def clean_name(self):
-	if not self.cleaned_data['name'].replace(' ','').isalpha():
+	if not self.cleaned_data['name'].replace(' ', '').isalpha():
 	    raise forms.ValidationError(u'Names cannot contain anything other than alphabets.')
 	else:
 	    return self.cleaned_data['name']
