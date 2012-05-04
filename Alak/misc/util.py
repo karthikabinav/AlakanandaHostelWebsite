@@ -5,7 +5,7 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.template.loader import get_template
 from django.template.context import Context, RequestContext
 
-from Alak import settings
+from django.conf import settings
 from Alak.home.models import *
 import Alak
 #from main_test.users import models
