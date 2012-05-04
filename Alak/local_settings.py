@@ -5,9 +5,11 @@ import global_settings
 from global_settings import *
 
 DEBUG = True
+TEMPLATE_DEBUG = DEBUG
 ADMINS = (
     ('Karthik Abinav', 'karthikabinavs@gmail.com'),
 )
+MANAGERS = ADMINS
 
 DATABASES = {
     'default': {

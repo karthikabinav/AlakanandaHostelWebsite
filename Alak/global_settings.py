@@ -1,14 +1,4 @@
-DEBUG = False
-TEMPLATE_DEBUG = DEBUG
-
-ADMINS = ()
-
-MANAGERS = ADMINS
-
-DATABASES = {}
-
 TIME_ZONE = 'Asia/Calcutta'
-
 LANGUAGE_CODE = 'en-us'
 
 SITE_ID = 1
@@ -17,12 +7,7 @@ USE_I18N = False
 
 USE_L10N = True
 
-MEDIA_ROOT = ''
-SITE_URL = ''
-MEDIA_URL = ''
-
 ADMIN_MEDIA_PREFIX = '/media/'
-
 
 SECRET_KEY = '&67tk4yxrg7w4553#g4=3au!0#&^)u8o3w%xv9u9fb^(o8xd0m'
 
@@ -41,8 +26,6 @@ MIDDLEWARE_CLASSES = (
 )
 AUTH_PROFILE_MODULE = "home.UserProfile"
 ROOT_URLCONF = 'Alak.urls'
-
-TEMPLATE_DIRS = ()
 
 INSTALLED_APPS = (
     'django.contrib.auth',
