@@ -1,0 +1,12 @@
+@font-face {
+  font-family: 'Ubuntu';
+  font-style: normal;
+  font-weight: bold;
+  src: local('Ubuntu Bold'), local('Ubuntu-Bold'), url('http://themes.googleusercontent.com/static/fonts/ubuntu/v3/0ihfXUL2emPh0ROJezvraKCWcynf_cDxXwCLxiixG1c.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Ubuntu';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Ubuntu'), url('http://themes.googleusercontent.com/static/fonts/ubuntu/v3/2Q-AW1e_taO6pHwMXcXW5w.ttf') format('truetype');
+}

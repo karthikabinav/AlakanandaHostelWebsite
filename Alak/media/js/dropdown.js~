@@ -1,0 +1,20 @@
+(document.getElementById ? DOMCapable = true : DOMCapable = false);
+function hide(menuName)
+{
+if (DOMCapable)
+{
+     $(menuName+"Choices").click(function () {
+    $(menuName+"Choices").fadeOut("slow");
+    });
+var theMenu = document.getElementById(menuName+"Choices");
+theMenu.style.visibility = 'hidden';
+}
+}
+function show(menuName)
+{
+if (DOMCapable)
+{
+var theMenu = document.getElementById(menuName+"Choices");
+theMenu.style.visibility = 'visible';
+}
+}
