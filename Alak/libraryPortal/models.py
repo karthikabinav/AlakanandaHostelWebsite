@@ -1,5 +1,4 @@
 from django.db import models
-from django.conf import settings
 from Alak.home.models import UserProfile
 
 class Book(models.model):
