@@ -29,7 +29,9 @@ def login (request):
         form = forms.LoginForm(data)
         if form.is_valid():
             print "form is valid"
+            print form.cleaned_data['username']
             user = auth.authenticate(username=form.cleaned_data['username'], password=form.cleaned_data["password"])
+            
             if user is not None:
                 auth.login (request, user)
                 request.session['logged_in'] = True
