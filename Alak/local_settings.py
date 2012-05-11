@@ -28,6 +28,9 @@ SITE_URL = 'http://localhost:8000/'
 
 MEDIA_URL = 'http://localhost/Alak/'
 
+STATIC_ROOT = '/var/www/Alak/static/'
+
+STATIC_URL = 'http://localhost/Alak/static/'
 
 TEMPLATE_DIRS = (
     '/home/karthikabinav/AlakanandaHostelWebsite/Alak/templates/'

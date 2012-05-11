@@ -9,6 +9,6 @@
 {% block body %}
 
 <div id="static_body" >
-    
+    <h2> Your entry has been successfully recorded.Thank you. </h2>
 </div>    
 {% endblock%}

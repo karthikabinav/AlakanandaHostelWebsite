@@ -2,7 +2,7 @@
 {%block central_image%}{%endblock%}
 {%block header%}
 
-<link href="{{MEDIA_URL}}css/static.css" rel="stylesheet" type="text/css" media="screen" />
+<link href="{{STATIC_URL}}css/static.css" rel="stylesheet" type="text/css" media="screen" />
 <style>
 #activities
 {
@@ -16,13 +16,13 @@
 {% block body %}
 
 <div style="font-size:16px">
-<img src="{{MEDIA_URL}}images/techsoc/hostelActivities.png" style="position:absolute;left:170px;">
-<img src ="{{MEDIA_URL}}images/techsoc/techSoc.png" style="position:absolute;left:210px;top:170px;">
+<img src="{{STATIC_URL}}images/techsoc/hostelActivities.png" style="position:absolute;left:170px;">
+<img src ="{{STATIC_URL}}images/techsoc/techSoc.png" style="position:absolute;left:210px;top:170px;">
 
 <!-- the background images for the text -->
-<img src="{{MEDIA_URL}}images/textBackground.png" style="position:absolute;left:200px;top:230px;width:520px;height:200px;z-index:-1">
-<img src="{{MEDIA_URL}}images/textBackground.png" style="position:absolute;left:720px;top:630px;width:420px;height:200px;z-index:-1">
-<img src="{{MEDIA_URL}}images/textBackground.png" style="position:absolute;left:200px;top:890px;width:920px;height:100px;z-index:-1">
+<img src="{{STATIC_URL}}images/textBackground.png" style="position:absolute;left:200px;top:230px;width:520px;height:200px;z-index:-1">
+<img src="{{STATIC_URL}}images/textBackground.png" style="position:absolute;left:720px;top:630px;width:420px;height:200px;z-index:-1">
+<img src="{{STATIC_URL}}images/textBackground.png" style="position:absolute;left:200px;top:890px;width:920px;height:100px;z-index:-1">
 
 <!-- the image titles -->
 <span style="position:absolute;left:900px;top:550px;font-family:Helvetica;font-size:20px;"> Fire n' Ice</span>
@@ -33,9 +33,9 @@
     </div>
     
     
-    <img src = "{{MEDIA_URL}}images/static/techsoc.jpg" title = "Fire n' Ice" style="position:absolute;left:730px;width:400px;top:240px;height:300px"/>
+    <img src = "{{STATIC_URL}}images/static/techsoc.jpg" title = "Fire n' Ice" style="position:absolute;left:730px;width:400px;top:230px;height:300px"/>
 
-<img src="{{MEDIA_URL}}images/techsoc/pic2.jpg" style= "position:absolute;left:210px;top:450px;width:450px;">
+<img src="{{STATIC_URL}}images/techsoc/pic2.jpg" style= "position:absolute;left:210px;top:450px;width:450px;">
 
 <div id="tech_right" style="position:absolute;left:730px;top:650px;width:400px;">
 Students of Alakananda have been constantly winning competitions at Shaastra, Mechanica and other technical fests. Junkyard Wars, Pwned, Shock, Sim Champ, Make Things Work, Project X and Puzzle Championship to name a few are events Alakites have been winning at. Alakananda has also won the 3rd place in Fete-technical last year.

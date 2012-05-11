@@ -5,7 +5,7 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.template.loader import get_template
 from django.template.context import Context, RequestContext
 
-from Alak import settings
+from django.conf import settings
 from Alak.home.models import *
 import Alak
 #from main_test.users import models
@@ -34,30 +34,6 @@ def needs_authentication (func):
         else:
             return func (*__args, **__kwargs)
     return wrapper
-
-# Check for coords status. Use *after* needs_authentication. Always
-def coords_only (func):
-    def wrapper (*__args, **__kwargs):
-        request = __args[0]
-        userprofile= request.user.get_profile()
-        if userprofile.is_coord == True:
-            return func (*__args, **__kwargs)
-        else:
-            request.session['access_denied'] = True
-            return HttpResponseRedirect ("%shome/"%settings.SITE_URL)
-    return wrapper
-
-# Check for eventcore status. Use *after* needs_authentication. Always
-def event_cores_only (func):
-    def wrapper (*__args, **__kwargs):
-        request = __args[0]
-        if request.user.groups.filter(name="EventCores"):
-            return func (*__args, **__kwargs)
-        else:
-            request.session['access_denied'] = True
-            return HttpResponseRedirect ("%s/home/"%settings.SITE_URL)
-    return wrapper
-
 
 # Check for admin status. Use *after* needs_authentication. Always
 def admin_only (func):

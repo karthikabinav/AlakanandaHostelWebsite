@@ -14,7 +14,7 @@
     
         <table>
         
-        
+        {{form.as_table}}
         </table>
     <button type="submit" id="update" style="border: 0;">
     

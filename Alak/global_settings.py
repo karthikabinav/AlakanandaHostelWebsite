@@ -29,6 +29,7 @@ ROOT_URLCONF = 'Alak.urls'
 
 INSTALLED_APPS = (
     'django.contrib.auth',
+    'django.contrib.staticfiles',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.sites',

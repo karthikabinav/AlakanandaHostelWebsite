@@ -4,7 +4,7 @@
 
 {%block header%}
 
-<link href="{{MEDIA_URL}}css/profile.css" rel="stylesheet" type="text/css" media="screen" />
+<link href="{{STATIC_URL}}css/profile.css" rel="stylesheet" type="text/css" media="screen" />
 
 {%endblock%}
 
@@ -20,7 +20,7 @@
     {{form.photo}}
     </div>
     
-    <div id="nameTitle" class="titleRight"><img src="{{MEDIA_URL}}images/profilePage/name.png"/>
+    <div id="nameTitle" class="titleRight"><img src="{{STATIC_URL}}images/profilePage/name.png"/>
     </div>
     
     <div id="nameDesc" class ="DescRight">
@@ -30,7 +30,7 @@
     
     
     <div id="rollTitle"class="titleRight">
-    <img src="{{MEDIA_URL}}images/profilePage/rollNo.png"/>
+    <img src="{{STATIC_URL}}images/profilePage/rollNo.png"/>
     </div>
     <div id="rollDesc" class ="DescRight">
     {{form.roll_number}}
@@ -40,7 +40,7 @@
     
     
     <div id="branchTitle" class="titleRight">
-        <img src="{{MEDIA_URL}}images/profilePage/branch.png"/>
+        <img src="{{STATIC_URL}}images/profilePage/branch.png"/>
     </div>
     
     <div id="branchDesc" class="DescRight">
@@ -53,7 +53,7 @@
     
     
     <div id="homeTitle" class="titleRight">
-        <img src="{{MEDIA_URL}}images/profilePage/homeTown.png"/>
+        <img src="{{STATIC_URL}}images/profilePage/homeTown.png"/>
     </div>
     
     <div id="homeDesc" class="DescRight">
@@ -62,7 +62,7 @@
     
     
     <div id="aboutTitle" class = "title">
-    <img src="{{MEDIA_URL}}images/profilePage/aboutMe.png"/>
+    <img src="{{STATIC_URL}}images/profilePage/aboutMe.png"/>
     </div>
     
     <div id="aboutDesc" class = "Desc">
@@ -73,7 +73,7 @@
     
     
     <div id="skillTitle" class="title">
-       <img src="{{MEDIA_URL}}images/profilePage/skillSet.png"/>  
+       <img src="{{STATIC_URL}}images/profilePage/skillSet.png"/>  
     </div>
     
     <div id="skillDesc" class = "Desc">
@@ -84,12 +84,12 @@
     
     <div id="contactTitle" class="title">
     
-        <img src="{{MEDIA_URL}}images/profilePage/contactDetails.png"/>
+        <img src="{{STATIC_URL}}images/profilePage/contactDetails.png"/>
     </div>
     
     
     <div id="phoneTitle" class = "title">
-    <img src="{{MEDIA_URL}}images/profilePage/phoneNo.png"/>
+    <img src="{{STATIC_URL}}images/profilePage/phoneNo.png"/>
     </div>
     
     <div id="phoneDesc">
@@ -97,7 +97,7 @@
     </div>
     
      <div id="roomTitle" class="title">
-        <img src="{{MEDIA_URL}}images/profilePage/roomNo.png"/>
+        <img src="{{STATIC_URL}}images/profilePage/roomNo.png"/>
     </div>
     
     <div id="roomDesc">
@@ -105,7 +105,7 @@
     </div>
     
     <div id="emailTitle" class = "mail">
-       <img src="{{MEDIA_URL}}images/profilePage/email.png"/>     
+       <img src="{{STATIC_URL}}images/profilePage/email.png"/>     
     </div>
     
     <div id="emailDesc">
@@ -115,14 +115,14 @@
 
 
     <div id="socialTitle" class = "mail">
-       <img src="{{MEDIA_URL}}images/profilePage/facebook.png"/>     
+       <img src="{{STATIC_URL}}images/profilePage/facebook.png"/>     
     </div>
     
     <div id="socialDesc">
         {{form.social}}
     </div>
     
-    <div id="updateButton" style="position:absolute;top:980px;left:580px;">
+    <div id="updateButton" style="position:absolute;top:1000px;left:580px;">
     <button type="submit" id="update" style="border: 0;">
     
     </button>

@@ -3,7 +3,7 @@
 
 {%block header%}
 
-<link href="{{MEDIA_URL}}css/static.css" rel="stylesheet" type="text/css" media="screen" />
+<link href="{{STATIC_URL}}css/static.css" rel="stylesheet" type="text/css" media="screen" />
 
 {%endblock%}
 
@@ -25,15 +25,15 @@
 Mail id of the Alumni Affairs Secretary</td><td style="color:green"> aniruddhpadia@gmail.com</td></tr>
 <tr>
 <td>
-Phone number</td><td> +91 99622 47527</td></tr>
+Phone number</td><td style="color:green"> +91 99622 47527</td></tr>
 <tr><td>
-Google group</td> <td> alakananda-hostel@googlegroups.com</td></tr>
+Google group</td> <td style="color:green"> alakananda-hostel@googlegroups.com</td></tr>
 <tr>
 <td>
-Yahoo group </td><td> Alak-naama@yahoogroups.com</td></tr>
+Yahoo group </td><td style="color:green"> Alak-naama@yahoogroups.com</td></tr>
 <tr>
 <td>
-Photo blog </td><td> alaktus.tumblr.com</td></tr>
+Photo blog </td><td style="color:green"> alaktus.tumblr.com</td></tr>
 </table>
 </p>
 </div>    

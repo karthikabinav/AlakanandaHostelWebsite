@@ -3,13 +3,13 @@
 <head>
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <title>{%block pageTitle%}Alakananda Hostel{%endblock%}</title>
-    <link rel="shortcut icon" href="{{MEDIA_URL}}images/favicon.ico" >
+    <link rel="shortcut icon" href="{{STATIC_URL}}images/favicon.ico" >
     <meta name="keywords" content="Alakananda , Alak , IIT madras" />
     <meta name="description" content="Best hostel, Alakananda , Alak" />
-    <script src="{{MEDIA_URL}}js/dropdown.js"></script>
-     <script src="{{MEDIA_URL}}js/jquery-latest.js"></script>
-    <link rel="stylesheet" type="text/css" href="{{MEDIA_URL}}css/css?family=Ubuntu:regular,bold&subset=Latin">
-    <link href="{{MEDIA_URL}}css/style1.css" rel="stylesheet" type="text/css" media="screen" />
+    <script src="{{STATIC_URL}}js/dropdown.js"></script>
+     <script src="{{STATIC_URL}}js/jquery-latest.js"></script>
+    <link rel="stylesheet" type="text/css" href="{{STATIC_URL}}css/css?family=Ubuntu:regular,bold&subset=Latin"/>
+    <link href="{{STATIC_URL}}css/style1.css" rel="stylesheet" type="text/css" media="screen" />
 
     {%block header%}
     {%endblock%}
@@ -29,13 +29,13 @@
     </div>           
 
                    <div id="banner">
-		    <img src="{{MEDIA_URL}}images/alakCentralImage.jpg" style="position:absolute;left:180px;height:512px;width:1024px;" alt="" />
+		    <img src="{{STATIC_URL}}images/alakCentralImage.jpg" style="position:absolute;left:180px;height:512px;width:1024px;" alt="" />
 		
 		    </div>
         {%endblock%}
         {%block fixed_icons%}
            <!-- the under construction text -->
-<div id="underConstruction" style="position:absolute;top:10px;left:200px;">Check the list of new secrataries in the Secrataries column</div>
+<div id="underConstruction" style="position:absolute;top:10px;left:200px;"></div>
     
     
     
@@ -106,7 +106,7 @@
             
             <div id="AlakLogo" style="position:absolute;left:1150px;top:10px;">
             {%block top_right%}
-                <img src="{{MEDIA_URL}}images/alaklogo.png" />
+                <img src="{{STATIC_URL}}images/alaklogo.png" />
             {%endblock%}
             </div>
         </div>
@@ -116,9 +116,9 @@
      <div id="body">
       {%block body%}
          <div id = "main_text">
-            <img src="{{MEDIA_URL}}images/textBackground.png" style="width:480px;height:340px;position:absolute;left:-20px;top:-20px;z-index:-1"/>
+            <img src="{{STATIC_URL}}images/textBackground.png" style="width:480px;height:340px;position:absolute;left:-20px;top:-20px;z-index:-1"/>
                 <div id="left_text" style="position:absolute;width:430px;font-size:0.9em;letter-spacing:0.5px;text-align:left;">  <strong style="color:#42a723"> Alakananda </strong>, built in the 1970s has been home away from home to some of the finest students of IIT Madras. Housing about 250 students, its walls speak of stories of the past and the present. It has seen the transformation of IIT as a brand of global repute. Named after the great river, a continuous flow of promising talent is what we pride ourselves in.</div>
-                <img src="{{MEDIA_URL}}images/textBackground.png" style="width:535px;position:absolute;left:470px;top:-20px;z-index:-1"/>
+                <img src="{{STATIC_URL}}images/textBackground.png" style="width:535px;position:absolute;left:470px;top:-20px;z-index:-1"/>
       <div id="right_text" style="position:absolute;width:480px;height:480px;left:500px;font-size:0.9em;letter-spacing:0.5px;text-align:left;">  Alak, as we fondly call our hostel, is an abode of chaos. Sports, music, acads come together in a potent blend of ecstasy. Coming from various parts of the country, we are the most varied, talented and envied among the students of IIT. We at Alakananda thrive at being the best in everything, whether it's our rock band "Baba's Black Sheep" sweeping away everyone else in Lit-Soc or the volley team smashing away to the gold in Schroeter or the nine pointers beating everyone else when it comes to acads.</div>
            </div>          
             {%endblock%}
@@ -127,7 +127,7 @@
          {%block footer%}   
             <div id="footer"style="font-weight:bold;color:#FFFFFF;top:1020px;">
         	
-                    <img src="{{MEDIA_URL}}images/TabNew/credits1.png"> <a href="http://www.facebook.com/abhiram.ravi" target="_blank"><img src="{{MEDIA_URL}}images/TabNew/abhiram.png"></a> &nbsp<img src="{{MEDIA_URL}}images/TabNew/and.png">&nbsp<a href="http://www.facebook.com/karthikabinavs" target="_blank"> <img src="{{MEDIA_URL}}images/TabNew/kabinav.png"></a>  
+                    <img src="{{STATIC_URL}}images/TabNew/credits1.png"> <a href="http://www.facebook.com/abhiram.ravi" target="_blank"><img src="{{STATIC_URL}}images/TabNew/abhiram.png"></a> &nbsp<img src="{{STATIC_URL}}images/TabNew/and.png">&nbsp<a href="http://www.facebook.com/karthikabinavs" target="_blank"> <img src="{{STATIC_URL}}images/TabNew/kabinav.png"></a>  
         
             </div>
         {%endblock%}    
