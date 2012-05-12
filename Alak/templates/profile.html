@@ -12,9 +12,9 @@
 
     <div id="photo" class="title">
     {%if profile.photo and profile.photo != False %}
-        <img src="{{profile.photo.url}}"/>
+        <img src="{{profile.photo.url}}" class="resize"/>
     {%else%}
-        <img src="{{STATIC_URL}}images/profilePage/noPhoto.jpg"/>
+        <img src="{{STATIC_URL}}images/profilePage/noPhoto.jpg" class="resize"/>
     {%endif%}
     </div>
     

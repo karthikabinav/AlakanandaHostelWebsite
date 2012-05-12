@@ -36,13 +36,19 @@
     width:820px;
     height:200px;
 }
+.resize
+{
+    width:180px;
+    height:180px;
+
+}
 #photo
 {
     
     top:120px;
     width:180px;
     height:180px;
-    sizingMethod:scale;
+    
 
 }
 #nameTitle
