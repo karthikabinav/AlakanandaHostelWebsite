@@ -1,9 +1,9 @@
 from django.db import models
 from Alak.home.models import UserProfile
 
-class Book(models.model):
-    name = models.CharField(max_length=400, required=True)
-    author = models.CharField(max_length=400, required=False)
+class Book(models.Model):
+    name = models.CharField(max_length=400)
+    author = models.CharField(max_length=400)
     isVisible = models.BooleanField()
     
     def __unicode__(self):

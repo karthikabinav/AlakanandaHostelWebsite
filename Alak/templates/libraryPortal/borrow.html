@@ -1,0 +1,19 @@
+{%extends "index.html"%}
+{%block central_image%}{%endblock%}
+{%block header%}
+
+<link href="{{STATIC_URL}}css/libraryPortal.css" rel="stylesheet" type="text/css" media="screen" />
+
+{%endblock%}
+
+{%block body%}
+
+<form action="/libraryPortal/borrow/" method="POST">
+	{%csrf_token%}
+	{{form.as_table}}
+	<button type="submit" id="logout">
+
+	</button>
+</form>
+
+{%endblock%}

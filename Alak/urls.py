@@ -7,6 +7,7 @@ from django.conf.urls.defaults import patterns, include, url
 urlpatterns = patterns('',
 
     url(r'^', include ('Alak.home.urls')),
+    url(r'^libraryPortal/', include ('Alak.libraryPortal.urls')),
     # Examples:
     # url(r'^$', 'Alak.views.home', name='home'),
     # url(r'^Alak/', include('Alak.foo.urls')),
