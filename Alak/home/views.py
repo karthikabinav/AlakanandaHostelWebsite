@@ -5,9 +5,7 @@ from django.contrib import auth
 from django.contrib.auth.models import User
 from django.template.loader import get_template
 from django.template.context import Context, RequestContext
-from django.utils.translation import ugettext as _
 from django.contrib.sessions.models import Session
-
 
 from Alak.misc.util import *
 from django.conf import settings
@@ -66,52 +64,28 @@ def display_home(request):
 
 @needs_authentication
 def Profile(request):
-
-        
-        
-        
-        #print correct_user == user
-        #print request.session['logged_in']
-        
         user = request.user
         
         try:
             profile = UserProfile.objects.get(user__username=user.username)
-            #name = profile.display_name
-            
             display_edit = True
         except:
-            
             return HttpResponseRedirect("%sUpdateProfile/" % (settings.SITE_URL))
-        
-        
-        
         return render_to_response('profile.html', locals(), context_instance=global_context(request))
-
-
        
 @needs_authentication
 def updateProfile(request):
     
-    #print request.user.username
-    #print user
-    
     user = request.user
-    
-    
     if request.method == "POST":
-        
         data = request.POST.copy()
         try:    
             form = forms.UpdateProfileForm(data, request.FILES)
-        
         except:
             form = forms.UpdateProfileForm(data)
             
         if form.is_valid():
             user.email = form.cleaned_data['email']
-            #user.set_password(form.cleaned_data['password'])
-            #user.is_active= False
             user.save()
             display_name = form.cleaned_data["display_name"]
             hometown = form.cleaned_data["hometown"]
@@ -154,9 +128,6 @@ def updateProfile(request):
         return render_to_response('updateProfile.html', locals(), context_instance=global_context(request))
 @needs_authentication
 def editProfile(request):
-    
-    
-    
     user = request.user
     profile = UserProfile.objects.get(user__username=user.username)
     if request.method == "POST":
@@ -196,27 +167,16 @@ def editProfile(request):
             error = "Please fill the mandatory columns(Name,Roll Number,Branch,Room Number,Email) "
             
             return render_to_response('editProfile.html', locals(), context_instance=global_context(request))
-
-    
-    
-    
-    
     else:
-       
-        
         if profile.photo and profile.photo != False:
             form = forms.UpdateProfileForm(initial={'email':profile.user.email, 'display_name':profile.display_name, 'hometown':profile.hometown, 'skill_set':profile.skill_set, 'social':profile.social, 'room_number':profile.room_number, 'branch':profile.branch, 'mobile_number':profile.mobile_number, 'roll_number':profile.roll_number, 'about_me':profile.about_me, 'photo':profile.photo})  
         else:
             form = forms.UpdateProfileForm(initial={'email':profile.user.email, 'display_name':profile.display_name, 'hometown':profile.hometown, 'skill_set':profile.skill_set, 'social':profile.social, 'room_number':profile.room_number, 'branch':profile.branch, 'mobile_number':profile.mobile_number, 'roll_number':profile.roll_number, 'about_me':profile.about_me})
-                  
             
         error = "These columns are mandatory - (Name,Roll Number, Branch , Room Number , Email)"
         return render_to_response('editProfile.html', locals(), context_instance=global_context(request))
 
 def displayProfile(request, user):
-
-        
-                  
         try:
             profile = UserProfile.objects.get(user__username=user)
             print profile
@@ -233,16 +193,11 @@ def changePassword(request):
     display_pass = False
     
     if request.method == "POST":
-        
         data = request.POST.copy()
-            
         form = forms.changePasswordForm(data)
-        
             
         if form.is_valid():
-            
             profile.user.set_password(form.cleaned_data['password'])
-            #user.is_active= False
             profile.user.save()
             return HttpResponseRedirect("%smyHome/" % (settings.SITE_URL))
         
@@ -250,15 +205,8 @@ def changePassword(request):
             error = "Password(s) too short or dont match"
             
             return render_to_response('changePassword.html', locals(), context_instance=global_context(request))
-
-    
-    
-    
-    
     else:
-       
        error = ""
-       
        form = forms.changePasswordForm() 
        return render_to_response('changePassword.html', locals(), context_instance=global_context(request))
 
@@ -333,39 +281,25 @@ def updated_soon(request):
 # Actual creation done by script after verification
 
 def CreateUsers(request):
-     
-    
     if request.method == "POST":
-        
         data = request.POST.copy()
-            
         form = forms.CreateUserForm(data)
-        
-        
             
         if form.is_valid():
-            
             username = form.cleaned_data["username"]
             password = form.cleaned_data["password"]
             email = form.cleaned_data["email"]
-            
-            
             newuser = AddUsers(
                         username=username,
                         password=password,
        		            email=email
        		            
                         )
-                        
             newuser.save()
             return render_to_response('success.html', locals(), context_instance=global_context(request))
-        
         else:
-            
-            
             return render_to_response('creteUser.html', locals(), context_instance=global_context(request))
 
     else :
         form = forms.CreateUserForm()
-        
         return render_to_response('createUser.html', locals(), context_instance=global_context(request))           
