@@ -18,8 +18,25 @@ class BookOrder(models.Model):
     dateBorrowed = models.DateTimeField()
     dateReturned = models.DateTimeField(null=True)
     dueDate = models.DateTimeField()
+        
+    class Admin:
+        pass
+
+class ShippingKey(models.Model):
+    key = models.CharField(max_length=100)
+    
+    class Admin:
+        pass
+    
+class ShippingLogin(models.Model):
+    user = models.ForeignKey(UserProfile)
+    lastLogin = models.DateTimeField()
     
     class Admin:
         pass
 
-
+class Shipping(models.Model):
+    order = models.ForeignKey(BookOrder)
+    type = models.CharField(max_length=10)
+    shippedOn = models.DateTimeField()
+    shippedBy = models.ForeignKey(ShippingLogin)

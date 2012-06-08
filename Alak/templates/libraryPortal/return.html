@@ -1,16 +1,13 @@
 {%extends "index.html"%}
 {%block central_image%}{%endblock%}
-{%block header%}
-
-<link href="{{STATIC_URL}}css/libraryPortal.css" rel="stylesheet" type="text/css" media="screen" />
-
-{%endblock%}
 
 {%block body%}
 {%if bookBorrowed%}
 <h2>You have borrowed the following book.</h2>
 <table>
-	<th>Book Name</th><th>Book author</th><th>Date of Borrow</th><th>Due Date</th>
+	<tr>
+		<th>Book Name</th><th>Book author</th><th>Date of Borrow</th><th>Due Date</th>
+	</tr>
 	<tr>
 		<td> {{bookBorrowed.book.name}} </td>
 		<td> {{bookBorrowed.book.author}} </td>

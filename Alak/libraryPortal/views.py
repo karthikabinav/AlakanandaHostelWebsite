@@ -1,5 +1,6 @@
 from django.conf import settings
 from django.http import Http404
+from django.core.mail import EmailMultiAlternatives
 from Alak.libraryPortal import forms
 from Alak.home.models import UserProfile
 from Alak.misc.util import *
@@ -28,7 +29,12 @@ def borrowBooks(request):
                               dateReturned=None,
                                dueDate=datetime.datetime.now() + relativedelta(days=10))
             bookorder.save()
-        
+            subject, from_email, to = 'Book Borrowed', 'noreply.alakananda@gmail.com', 'raymond.joseph.7@gmail.com'
+            text_content = userprofile.user.name + " from " + userprofile.room_number + " has borrowed the book " + book.name + " written by " + book.author + ".\n Please deliver the same to him as soon as possible." 
+            html_content = "<p>" + userprofile.user.name + " from " + userprofile.room_number + " has borrowed the book " + book.name + " written by " + book.author + ".<br/> Please deliver the same to him as soon as possible.</p>"
+            msg = EmailMultiAlternatives(subject, text_content, from_email, [to])
+            msg.attach_alternative(html_content, "text/html")
+            msg.send()
             return render_to_response("libraryPortal/success.html", locals(), context_instance=global_context(request))
         else:
             form = forms.BorrowForm()
@@ -67,9 +73,30 @@ def returnBooks(request):
         bookorder = BookOrder.objects.get(book=book, dateReturned=None)
         bookorder.dateReturned = datetime.datetime.now()
         bookorder.save()
+        subject, from_email, to = 'Book Returned', 'noreply.alakananda@gmail.com', 'raymond.joseph.7@gmail.com'
+        text_content = userprofile.user.name + " from " + userprofile.room_number + " has returned the book " + book.name + " written by " + book.author + ".\n Please collect the same from him as soon as possible." 
+        html_content = "<p>" + userprofile.user.name + " from " + userprofile.room_number + " has returned the book " + book.name + " written by " + book.author + ".<br/> Please collect the same from him as soon as possible.</p>"
+        msg = EmailMultiAlternatives(subject, text_content, from_email, [to])
+        msg.attach_alternative(html_content, "text/html")
+        msg.send()
         return render_to_response('libraryPortal/successfulReturn.html', locals(), context_instance=global_context(request))
-        
-        
-        
-        
-        
+
+@needs_authentication
+def shippingLogin(request):
+    if request.method == "POST":
+        data = request.POST.copy()
+        form = forms.ShippingForm(data)
+        if form.is_valid():
+            password = form.cleaned_data["key"]
+            actualKey = ShippingKey.objects.all()
+            if password == actualKey:
+                return HttpResponseRedirect ("%slibraryPortal/manageShipping" % settings.SITE_URL)
+            else:
+                return HttpResponseRedirect ("%slibraryPortal/shippingLogin" % settings.SITE_URL) 
+    else:
+        form = forms.ShippingForm()
+        return render_to_response('libraryPortal/shippingLogin.html', locals(), context_instance=global_context(request))
+    
+@needs_authentication
+def manageShipping(request):
+    return
