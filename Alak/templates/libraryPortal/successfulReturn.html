@@ -7,13 +7,14 @@
 {%endblock%}
 
 {%block body%}
-
-<form action="/libraryPortal/borrow/" method="POST">
-	{%csrf_token%}
-	{{form.as_table}}
-	<button type="submit">
-		Borrow Book
-	</button>
-</form>
+<h2>Book successfully returned. It will be Picked up from your room as soon as possible.
+<br/>
+Thanks,
+<br/>
+Raymond Joseph
+<br/>
+Litrary Secratary
+<br/>
+Alakananda Hostel</h2>
 
 {%endblock%}

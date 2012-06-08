@@ -16,6 +16,7 @@ class BookOrder(models.Model):
     user = models.ForeignKey(UserProfile)
     book = models.ForeignKey(Book)
     dateBorrowed = models.DateTimeField()
+    dateReturned = models.DateTimeField(null=True)
     dueDate = models.DateTimeField()
     
     class Admin:
