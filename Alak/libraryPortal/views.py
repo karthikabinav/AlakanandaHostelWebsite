@@ -35,8 +35,8 @@ def borrowBooks(request):
                 email = emails.email
                 
             subject, from_email, to = 'Book Borrowed', 'noreply.alakananda@gmail.com', email
-            text_content = userprofile.user.first_name + " from " + userprofile.room_number + " has borrowed the book " + book.name + " written by " + book.author + ".\n Please deliver the same to him as soon as possible." 
-            html_content = "<p>" + userprofile.user.first_name + " from " + userprofile.room_number + " has borrowed the book " + book.name + " written by " + book.author + ".<br/> Please deliver the same to him as soon as possible.</p>"
+            text_content = userprofile.display_name + " from " + userprofile.room_number + " has borrowed the book " + book.name + " written by " + book.author + ".\n Please deliver the same to him as soon as possible." 
+            html_content = "<p>" + userprofile.display_name + " from " + userprofile.room_number + " has borrowed the book " + book.name + " written by " + book.author + ".<br/> Please deliver the same to him as soon as possible.</p>"
             msg = EmailMultiAlternatives(subject, text_content, from_email, [to])
             msg.attach_alternative(html_content, "text/html")
             msg.send()
@@ -70,6 +70,7 @@ def returnBooks(request):
         
         return render_to_response('libraryPortal/return.html', locals(), context_instance=global_context(request))
     else:
+        userprofile = UserProfile.objects.get(user=request.user)
         data = request.POST["book"]
         book = Book.objects.get(id=data)
         book.isVisible = True
@@ -83,8 +84,8 @@ def returnBooks(request):
             email = emails.email
             
         subject, from_email, to = 'Book Returned', 'noreply.alakananda@gmail.com', email
-        text_content = userprofile.user.first_name + " from " + userprofile.room_number + " has returned the book " + book.name + " written by " + book.author + ".\n Please collect the same from him as soon as possible." 
-        html_content = "<p>" + userprofile.user.first_name + " from " + userprofile.room_number + " has returned the book " + book.name + " written by " + book.author + ".<br/> Please collect the same from him as soon as possible.</p>"
+        text_content = userprofile.display_name + " from " + userprofile.room_number + " has returned the book " + book.name + " written by " + book.author + ".\n Please collect the same from him as soon as possible." 
+        html_content = "<p>" + userprofile.display_name + " from " + userprofile.room_number + " has returned the book " + book.name + " written by " + book.author + ".<br/> Please collect the same from him as soon as possible.</p>"
         msg = EmailMultiAlternatives(subject, text_content, from_email, [to])
         msg.attach_alternative(html_content, "text/html")
         msg.send()
