@@ -1,0 +1,48 @@
+{%extends "index.html"%}
+{%block central_image%}{%endblock%}
+
+{%block body%}
+<h2>List of books borrowed, yet to be shipped</h2>
+
+<form action="/libraryPortal/manageShipping/" method="POST">
+	{%csrf_token%}
+	<table>
+		<tr>
+			<th>Title</th><th>Author</th><th>Date Borrowed</th>
+		</tr>
+		{% for books in orderedBooks%}
+		<tr>
+			<td>{{books.book.name}}</td>
+			<td>{{books.book.author}}</td>
+			<td>{{books.dateBorrowed}}</td>
+			<td>
+			<button type="submit" name="book" value={{books.book.id}}>
+				Ship Book
+			</button></td>
+		</tr>
+		{%endfor%}
+	</table>
+</form>
+
+<h2>List of books returned, yet to be shipped</h2>
+<form action="/libraryPortal/manageShipping/" method="POST">
+	{%csrf_token%}
+	<table>
+		<tr>
+			<th>Title</th><th>Author</th><th>Date Returned</th>
+		</tr>
+		{% for books in returnedBooks%}
+		<tr>
+			<td>{{books.book.name}}</td>
+			<td>{{books.book.author}}</td>
+			<td>{{books.dateBorrowed}}</td>
+			<td>
+			<button type="submit" name="book" value={{books.book.id}}>
+				Ship Book
+			</button></td>
+		</tr>
+		{%endfor%}
+	</table>
+</form>
+
+{%endblock%}

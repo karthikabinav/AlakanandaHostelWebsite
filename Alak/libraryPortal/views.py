@@ -27,11 +27,12 @@ def borrowBooks(request):
                               book=book,
                               dateBorrowed=datetime.datetime.now(),
                               dateReturned=None,
-                               dueDate=datetime.datetime.now() + relativedelta(days=10))
+                              dueDate=datetime.datetime.now() + relativedelta(days=10),
+                              shipped=False)
             bookorder.save()
             subject, from_email, to = 'Book Borrowed', 'noreply.alakananda@gmail.com', 'raymond.joseph.7@gmail.com'
-            text_content = userprofile.user.name + " from " + userprofile.room_number + " has borrowed the book " + book.name + " written by " + book.author + ".\n Please deliver the same to him as soon as possible." 
-            html_content = "<p>" + userprofile.user.name + " from " + userprofile.room_number + " has borrowed the book " + book.name + " written by " + book.author + ".<br/> Please deliver the same to him as soon as possible.</p>"
+            text_content = userprofile.user.first_name + " from " + userprofile.room_number + " has borrowed the book " + book.name + " written by " + book.author + ".\n Please deliver the same to him as soon as possible." 
+            html_content = "<p>" + userprofile.user.first_name + " from " + userprofile.room_number + " has borrowed the book " + book.name + " written by " + book.author + ".<br/> Please deliver the same to him as soon as possible.</p>"
             msg = EmailMultiAlternatives(subject, text_content, from_email, [to])
             msg.attach_alternative(html_content, "text/html")
             msg.send()
@@ -66,12 +67,12 @@ def returnBooks(request):
         return render_to_response('libraryPortal/return.html', locals(), context_instance=global_context(request))
     else:
         data = request.POST["book"]
-        print data
         book = Book.objects.get(id=data)
         book.isVisible = True
         book.save()
         bookorder = BookOrder.objects.get(book=book, dateReturned=None)
         bookorder.dateReturned = datetime.datetime.now()
+        bookorder.shipped = False
         bookorder.save()
         subject, from_email, to = 'Book Returned', 'noreply.alakananda@gmail.com', 'raymond.joseph.7@gmail.com'
         text_content = userprofile.user.name + " from " + userprofile.room_number + " has returned the book " + book.name + " written by " + book.author + ".\n Please collect the same from him as soon as possible." 
@@ -82,21 +83,33 @@ def returnBooks(request):
         return render_to_response('libraryPortal/successfulReturn.html', locals(), context_instance=global_context(request))
 
 @needs_authentication
-def shippingLogin(request):
-    if request.method == "POST":
-        data = request.POST.copy()
-        form = forms.ShippingForm(data)
-        if form.is_valid():
-            password = form.cleaned_data["key"]
-            actualKey = ShippingKey.objects.all()
-            if password == actualKey:
-                return HttpResponseRedirect ("%slibraryPortal/manageShipping" % settings.SITE_URL)
-            else:
-                return HttpResponseRedirect ("%slibraryPortal/shippingLogin" % settings.SITE_URL) 
-    else:
-        form = forms.ShippingForm()
-        return render_to_response('libraryPortal/shippingLogin.html', locals(), context_instance=global_context(request))
-    
-@needs_authentication
 def manageShipping(request):
-    return
+    querySet = ShippingKey.objects.all()
+    for emails in querySet:
+        email = emails.email
+    
+    if request.user.email == email:
+        if request.method == "POST":
+            data = request.POST["book"]
+            book = Book.objects.get(id=data)
+            bookorder = BookOrder.objects.get(book=book)
+            if bookorder.dateReturned == None:
+                type = "borrow"
+            else:
+                type = "return"
+            bookorder.shipped = True
+            bookorder.save()
+            shippingDetails = Shipping(order=bookorder,
+                                       type=type,
+                                       shippedOn=datetime.datetime.now(),
+                                       shippedBy=UserProfile.objects.get(user=request.user))
+            shippingDetails.save()
+            return HttpResponseRedirect ("%slibraryPortal/manageShipping" % settings.SITE_URL)
+        
+        else:
+            orderedBooks = BookOrder.objects.filter(shipped=False, dateReturned=None)
+            returnedBooks = BookOrder.objects.filter(shipped=False).exclude(dateReturned=None)
+            return render_to_response('libraryPortal/shippingDashboard.html', locals(), context_instance=global_context(request))
+        
+    else:
+        raise Http404
