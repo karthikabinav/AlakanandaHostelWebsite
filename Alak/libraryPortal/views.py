@@ -30,12 +30,12 @@ def borrowBooks(request):
                               dueDate=datetime.datetime.now() + relativedelta(days=10),
                               shipped=False)
             bookorder.save()
-            subject, from_email, to = 'Book Borrowed', 'noreply.alakananda@gmail.com', 'raymond.joseph.7@gmail.com'
+            """subject, from_email, to = 'Book Borrowed', 'noreply.alakananda@gmail.com', 'raymond.joseph.7@gmail.com'
             text_content = userprofile.user.first_name + " from " + userprofile.room_number + " has borrowed the book " + book.name + " written by " + book.author + ".\n Please deliver the same to him as soon as possible." 
             html_content = "<p>" + userprofile.user.first_name + " from " + userprofile.room_number + " has borrowed the book " + book.name + " written by " + book.author + ".<br/> Please deliver the same to him as soon as possible.</p>"
             msg = EmailMultiAlternatives(subject, text_content, from_email, [to])
             msg.attach_alternative(html_content, "text/html")
-            msg.send()
+            msg.send()"""
             return render_to_response("libraryPortal/success.html", locals(), context_instance=global_context(request))
         else:
             form = forms.BorrowForm()
@@ -74,12 +74,12 @@ def returnBooks(request):
         bookorder.dateReturned = datetime.datetime.now()
         bookorder.shipped = False
         bookorder.save()
-        subject, from_email, to = 'Book Returned', 'noreply.alakananda@gmail.com', 'raymond.joseph.7@gmail.com'
-        text_content = userprofile.user.name + " from " + userprofile.room_number + " has returned the book " + book.name + " written by " + book.author + ".\n Please collect the same from him as soon as possible." 
-        html_content = "<p>" + userprofile.user.name + " from " + userprofile.room_number + " has returned the book " + book.name + " written by " + book.author + ".<br/> Please collect the same from him as soon as possible.</p>"
+        """subject, from_email, to = 'Book Returned', 'noreply.alakananda@gmail.com', 'raymond.joseph.7@gmail.com'
+        text_content = userprofile.user.first_name + " from " + userprofile.room_number + " has returned the book " + book.name + " written by " + book.author + ".\n Please collect the same from him as soon as possible." 
+        html_content = "<p>" + userprofile.user.first_name + " from " + userprofile.room_number + " has returned the book " + book.name + " written by " + book.author + ".<br/> Please collect the same from him as soon as possible.</p>"
         msg = EmailMultiAlternatives(subject, text_content, from_email, [to])
         msg.attach_alternative(html_content, "text/html")
-        msg.send()
+        msg.send()"""
         return render_to_response('libraryPortal/successfulReturn.html', locals(), context_instance=global_context(request))
 
 @needs_authentication

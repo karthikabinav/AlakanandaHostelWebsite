@@ -3,25 +3,29 @@
 
 {%block body%}
 <h2>You have already borrowed the following book. Please return it before borrowing another one.</h2>
-<table>
-	<tr>
-		<th>Book Name</th><th>Book author</th><th>Date of Borrow</th><th>Due Date</th>
-	</tr>
-	<tr>
-		<td> {{bookBorrowed.book.name}} </td>
-		<td> {{bookBorrowed.book.author}} </td>
-		<td> {{bookBorrowed.dateBorrowed}} </td>
-		<td> {{bookBorrowed.dueDate}} </td>
+<div id="borrowedTable" style="position:relative;left:360px;font-size:10pt">
+	<table>
+		<tr>
+			<th>Book Name</th><th>Book author</th><th>Date of Borrow</th><th>Due Date</th>
+		</tr>
+		<tr>
+			<td> {{bookBorrowed.book.name}} </td>
+			<td> {{bookBorrowed.book.author}} </td>
+			<td> {{bookBorrowed.dateBorrowed}} </td>
+			<td> {{bookBorrowed.dueDate}} </td>
 
-	</tr>
-</table>
+		</tr>
+	</table>
+</div>
 <br/>
-Thanks,
+<br/>
+<br/>
+<br/>
+<h2> Thanks,
 <br/>
 Raymond Joseph
 <br/>
 Litrary Secratary
 <br/>
-Alakananda Hostel
-
+Alakananda Hostel </h2>
 {%endblock%}

@@ -3,46 +3,61 @@
 
 {%block body%}
 <h2>List of books borrowed, yet to be shipped</h2>
-
-<form action="/libraryPortal/manageShipping/" method="POST">
-	{%csrf_token%}
-	<table>
-		<tr>
-			<th>Title</th><th>Author</th><th>Date Borrowed</th>
-		</tr>
-		{% for books in orderedBooks%}
-		<tr>
-			<td>{{books.book.name}}</td>
-			<td>{{books.book.author}}</td>
-			<td>{{books.dateBorrowed}}</td>
-			<td>
-			<button type="submit" name="book" value={{books.book.id}}>
-				Ship Book
-			</button></td>
-		</tr>
-		{%endfor%}
-	</table>
-</form>
+<div id="borrowedTable" style="position:relative;left:440px;font-size:10pt">
+	<form action="/libraryPortal/manageShipping/" method="POST">
+		{%csrf_token%}
+		{%if orderedBooks%}
+		<table>
+			<tr>
+				<th>Title</th><th>Author</th><th>Date Borrowed</th>
+			</tr>
+			{% for books in orderedBooks%}
+			<tr>
+				<td>{{books.book.name}}</td>
+				<td>{{books.book.author}}</td>
+				<td>{{books.dateBorrowed}}</td>
+				<td>
+				<button type="submit" name="book" value={{books.book.id}}>
+					Ship Book
+				</button></td>
+			</tr>
+			{%endfor%}
+		</table>
+		{%else%}
+		<p style="position:relative;right:450px;">
+			No books to be shipped
+		</p>
+		{%endif%}
+	</form>
+</div>
 
 <h2>List of books returned, yet to be shipped</h2>
-<form action="/libraryPortal/manageShipping/" method="POST">
-	{%csrf_token%}
-	<table>
-		<tr>
-			<th>Title</th><th>Author</th><th>Date Returned</th>
-		</tr>
-		{% for books in returnedBooks%}
-		<tr>
-			<td>{{books.book.name}}</td>
-			<td>{{books.book.author}}</td>
-			<td>{{books.dateBorrowed}}</td>
-			<td>
-			<button type="submit" name="book" value={{books.book.id}}>
-				Ship Book
-			</button></td>
-		</tr>
-		{%endfor%}
-	</table>
-</form>
+<div id="borrowedTable" style="position:relative;left:440px;top:20px;font-size:10pt">
+	<form action="/libraryPortal/manageShipping/" method="POST">
+		{%csrf_token%}
+		{%if returnedBooks%}
+		<table>
+			<tr>
+				<th>Title</th><th>Author</th><th>Date Returned</th>
+			</tr>
+			{% for books in returnedBooks%}
+			<tr>
+				<td>{{books.book.name}}</td>
+				<td>{{books.book.author}}</td>
+				<td>{{books.dateBorrowed}}</td>
+				<td>
+				<button type="submit" name="book" value={{books.book.id}}>
+					Ship Book
+				</button></td>
+			</tr>
+			{%endfor%}
+		</table>
+		{%else%}
 
+		<p style="position:relative;right:450px;">
+			No books to be shipped
+		</p>
+		{%endif%}
+	</form>
+</div>
 {%endblock%}

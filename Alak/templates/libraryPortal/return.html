@@ -4,26 +4,30 @@
 {%block body%}
 {%if bookBorrowed%}
 <h2>You have borrowed the following book.</h2>
-<table>
-	<tr>
-		<th>Book Name</th><th>Book author</th><th>Date of Borrow</th><th>Due Date</th>
-	</tr>
-	<tr>
-		<td> {{bookBorrowed.book.name}} </td>
-		<td> {{bookBorrowed.book.author}} </td>
-		<td> {{bookBorrowed.dateBorrowed}} </td>
-		<td> {{bookBorrowed.dueDate}} </td>
 
-	</tr>
-</table>
+<div id="borrowedTable" style="position:relative;left:360px;font-size:10pt">
+	<table>
+		<tr>
+			<th>Book Name</th><th>Book author</th><th>Date of Borrow</th><th>Due Date</th>
+		</tr>
+		<tr>
+			<td> {{bookBorrowed.book.name}} </td>
+			<td> {{bookBorrowed.book.author}} </td>
+			<td> {{bookBorrowed.dateBorrowed}} </td>
+			<td> {{bookBorrowed.dueDate}} </td>
 
-<form action="/libraryPortal/return/" method="POST">
-	{%csrf_token%}
+		</tr>
+	</table>
+</div>
+<div style="position:relative;top:60px;left:0px;">
+	<form action="/libraryPortal/return/" method="POST">
+		{%csrf_token%}
 
-	<button type="submit" name="book" value={{bookBorrowed.book.id}}>
-		Return Book
-	</button>
-</form>
+		<button type="submit" name="book" value={{bookBorrowed.book.id}}>
+			Return Book
+		</button>
+	</form>
+</div>
 {%else%}
 <h2>You have not borrowed any book currently.</h2>
 Click <a href="/libraryPortal/borrow/">here</a> to borrow a book.
