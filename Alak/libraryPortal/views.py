@@ -3,8 +3,8 @@ from django.http import Http404
 from django.core.mail import EmailMultiAlternatives
 from Alak.libraryPortal import forms
 from Alak.home.models import UserProfile
-from Alak.misc.util import *
 from Alak.libraryPortal.models import *
+from Alak.misc.util import *
 import datetime
 from dateutil.relativedelta import relativedelta
 
@@ -100,12 +100,15 @@ def manageShipping(request):
     if request.user.email == email:
         if request.method == "POST":
             data = request.POST["book"]
+            type = request.POST["type"]
             book = Book.objects.get(id=data)
-            bookorder = BookOrder.objects.get(book=book)
-            if bookorder.dateReturned == None:
-                type = "borrow"
+            if type == "borrow":
+                bookorder = BookOrder.objects.get(book=book, dateReturned=None)
             else:
-                type = "return"
+                bookorderQ = BookOrder.objects.filter(book=book).exclude(dateReturned=None)
+                for Q in bookorderQ:
+                    bookorder = Q
+                
             bookorder.shipped = True
             bookorder.save()
             shippingDetails = Shipping(order=bookorder,
@@ -118,6 +121,7 @@ def manageShipping(request):
         else:
             orderedBooks = BookOrder.objects.filter(shipped=False, dateReturned=None)
             returnedBooks = BookOrder.objects.filter(shipped=False).exclude(dateReturned=None)
+            lateBooks = BookOrder.objects.filter(dueDate__lt=datetime.datetime.now(), dateReturned=None)
             return render_to_response('libraryPortal/shippingDashboard.html', locals(), context_instance=global_context(request))
         
     else:

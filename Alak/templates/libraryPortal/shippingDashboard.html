@@ -3,7 +3,7 @@
 
 {%block body%}
 <h2>List of books borrowed, yet to be shipped</h2>
-<div id="borrowedTable" style="position:relative;left:440px;font-size:10pt">
+<div style="position:relative;left:440px;font-size:10pt">
 	<form action="/libraryPortal/manageShipping/" method="POST">
 		{%csrf_token%}
 		{%if orderedBooks%}
@@ -20,6 +20,9 @@
 				<button type="submit" name="book" value={{books.book.id}}>
 					Ship Book
 				</button></td>
+				<td>
+				<input type="hidden" name="type" value="borrow"/>
+				</td>
 			</tr>
 			{%endfor%}
 		</table>
@@ -32,7 +35,7 @@
 </div>
 
 <h2>List of books returned, yet to be shipped</h2>
-<div id="borrowedTable" style="position:relative;left:440px;top:20px;font-size:10pt">
+<div style="position:relative;left:440px;top:20px;font-size:10pt">
 	<form action="/libraryPortal/manageShipping/" method="POST">
 		{%csrf_token%}
 		{%if returnedBooks%}
@@ -49,6 +52,9 @@
 				<button type="submit" name="book" value={{books.book.id}}>
 					Ship Book
 				</button></td>
+				<td>
+				<input type="hidden" name="type" value="return"/>
+				</td>
 			</tr>
 			{%endfor%}
 		</table>
@@ -60,4 +66,30 @@
 		{%endif%}
 	</form>
 </div>
+<br/>
+<h2>List of books beyond Due Date and not returned</h2>
+<div style="position:relative;left:440px;top:20px;font-size:10pt">
+	{%if lateBooks%}
+	<table>
+		<tr>
+			<th>User</th><th>Room</th><th>Email</th><th>Book</th><th>Due Date</th>
+		</tr>
+		{%for books in lateBooks%}
+		<tr>
+			<td>{{books.user.display_name}}</td>
+			<td>{{books.user.room_number}}</td>
+			<td>{{books.user.user.email}}</td>
+			<td>{{books.book.name}}</td>
+			<td>{{books.book.dueDate}}</td>
+
+		</tr>
+		{%endfor%}
+	</table>
+	{%else%}
+	<p style="position:relative;right:450px;">
+		No books beyind due date
+	</p>
+	{%endif%}
+</div>
+
 {%endblock%}
