@@ -6,7 +6,7 @@ from Alak.home.models import UserProfile
 from Alak.libraryPortal.models import *
 from Alak.misc.util import *
 import datetime
-from dateutil.relativedelta import relativedelta
+from datetime import *
 
 @needs_authentication
 def libraryPortal(request):
@@ -25,9 +25,9 @@ def borrowBooks(request):
             book.save()
             bookorder = BookOrder(user=userprofile,
                               book=book,
-                              dateBorrowed=datetime.datetime.now(),
+                              dateBorrowed=datetime.now(),
                               dateReturned=None,
-                              dueDate=datetime.datetime.now() + relativedelta(days=10),
+                              dueDate=datetime.now() + timedelta(days=10),
                               shipped=False)
             bookorder.save()
             querySet = ShippingKey.objects.all()
@@ -76,7 +76,7 @@ def returnBooks(request):
         book.isVisible = True
         book.save()
         bookorder = BookOrder.objects.get(book=book, dateReturned=None)
-        bookorder.dateReturned = datetime.datetime.now()
+        bookorder.dateReturned = datetime.now()
         bookorder.shipped = False
         bookorder.save()
         querySet = ShippingKey.objects.all()
@@ -113,7 +113,7 @@ def manageShipping(request):
             bookorder.save()
             shippingDetails = Shipping(order=bookorder,
                                        type=type,
-                                       shippedOn=datetime.datetime.now(),
+                                       shippedOn=datetime.now(),
                                        shippedBy=UserProfile.objects.get(user=request.user))
             shippingDetails.save()
             return HttpResponseRedirect ("%slibraryPortal/manageShipping" % settings.SITE_URL)
@@ -121,7 +121,7 @@ def manageShipping(request):
         else:
             orderedBooks = BookOrder.objects.filter(shipped=False, dateReturned=None)
             returnedBooks = BookOrder.objects.filter(shipped=False).exclude(dateReturned=None)
-            lateBooks = BookOrder.objects.filter(dueDate__lt=datetime.datetime.now(), dateReturned=None)
+            lateBooks = BookOrder.objects.filter(dueDate__lt=datetime.now(), dateReturned=None)
             return render_to_response('libraryPortal/shippingDashboard.html', locals(), context_instance=global_context(request))
         
     else:
