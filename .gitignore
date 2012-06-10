@@ -1,5 +1,8 @@
 Alak/local_settings.*
 Alak/*.pyc
+Alak/*/*.pyc
 Alak/*~
 Alak/*.sw*
+Alak/*/*~
+Alak/*/*.sw*
 
