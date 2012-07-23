@@ -22,7 +22,7 @@ if DEBUG:
     MIDDLEWARE_CLASSES = list(MIDDLEWARE_CLASSES)
     MIDDLEWARE_CLASSES.append('debug_toolbar.middleware.DebugToolbarMiddleware')
     MIDDLEWARE_CLASSES = tuple(MIDDLEWARE_CLASSES)
-    INTERNAL_IPS = ('127.0.0.1')
+    INTERNAL_IPS = ('127.0.0.1','117.192.179.42',)
 
     DATABASE_ENGINE = 'mysql'
     DEBUG_TOOLBAR_PANELS = (
