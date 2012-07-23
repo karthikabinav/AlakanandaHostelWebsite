@@ -11,6 +11,13 @@ def global_context(request):
     context =  RequestContext (request,{'MEDIA_URL':settings.MEDIA_URL ,'STATIC_URL':settings.STATIC_URL,'user' : request.user,'is_home':False,'display_pass':True},  )
     return context
 
+def serverError(request):
+    return render_to_response('500.html')
+
+def pageNotFound(request):
+    return render_to_response('404.html')
+
+
 # Decorators
 
 # Force authentication first
