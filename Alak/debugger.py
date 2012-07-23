@@ -15,8 +15,13 @@ if DEBUG:
     if not DEBUG_DIR in sys.path:
         sys.path.append(DEBUG_DIR)
     
-    TEMPLATE_DIRS = TEMPLATE_DIRS+(DEBUG_DIR + "debug_toolbar/templates",)
-    MIDDLEWARE_CLASSES = MIDDLEWARE_CLASSES+('debug_toolbar.middleware.DebugToolbarMiddleware',)
+    TEMPLATE_DIRS = list(TEMPLATE_DIRS)
+    TEMPLATE_DIRS.append(DEBUG_DIR + "debug_toolbar/templates")
+    TEMPLATE_DIRS = tuple(TEMPLATE_DIRS)
+
+    MIDDLEWARE_CLASSES = list(MIDDLEWARE_CLASSES)
+    MIDDLEWARE_CLASSES.append('debug_toolbar.middleware.DebugToolbarMiddleware')
+    MIDDLEWARE_CLASSES = tuple(MIDDLEWARE_CLASSES)
     INTERNAL_IPS = ('127.0.0.1')
 
     DATABASE_ENGINE = 'mysql'
