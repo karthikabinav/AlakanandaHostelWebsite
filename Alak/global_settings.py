@@ -14,7 +14,6 @@ SECRET_KEY = '&67tk4yxrg7w4553#g4=3au!0#&^)u8o3w%xv9u9fb^(o8xd0m'
 TEMPLATE_LOADERS = (
     'django.template.loaders.filesystem.Loader',
     'django.template.loaders.app_directories.Loader',
-#     'django.template.loaders.eggs.Loader',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -24,6 +23,7 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
 )
+
 AUTH_PROFILE_MODULE = "home.UserProfile"
 ROOT_URLCONF = 'Alak.urls'
 
