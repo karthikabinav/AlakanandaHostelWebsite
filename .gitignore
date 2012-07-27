@@ -5,3 +5,7 @@ Alak/*~
 Alak/*.sw*
 Alak/*/*~
 Alak/*/*.sw*
+bin/*
+local/*
+include/*
+lib/*
