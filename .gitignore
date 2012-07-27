@@ -10,4 +10,3 @@ local/*
 include/*
 lib/*
 fabfile.py
-sshkey/*
