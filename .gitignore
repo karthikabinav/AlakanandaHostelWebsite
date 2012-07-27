@@ -9,5 +9,5 @@ bin/*
 local/*
 include/*
 lib/*
-Alak/fabfile.py
+fabfile.py
 sshkey/*
